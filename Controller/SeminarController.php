@@ -9,7 +9,10 @@ class SeminarController extends AppController{
 		parent::initialize();
 		$this->viewBuilder()->autoLayout(true);
         $this->viewBuilder()->layout("seminar");
-        date_default_timezone_set('Asia/Tokyo');
+		date_default_timezone_set('Asia/Tokyo');
+		$this->loadModel('Categorys');
+		$this->loadModel('Matchings');
+		$this->loadModel('Seminars');
 		$this->Categorys = TableRegistry::get("categorys");
 		/*$this->viewBuilder()->layout("Seminar");*/
 	}
