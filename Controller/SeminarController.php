@@ -7,36 +7,43 @@ use Cake\Event\Event;
 class SeminarController extends AppController{
 	public function initialize(){
 		parent::initialize();
-		$this->Category = TableRegistry::get("category");
+		$this->viewBuilder()->autoLayout(true);
+        $this->viewBuilder()->layout("seminar");
+        date_default_timezone_set('Asia/Tokyo');
+		$this->Categorys = TableRegistry::get("categorys");
 		/*$this->viewBuilder()->layout("Seminar");*/
 	}
 
 	public function beforeFilter(Event $event){
 		parent::beforeFilter($event);
 		$category = array();
-		foreach ($this->Category->find()->all() as $tmp){
-			$category += array($tmp->categoryId=>$tmp->categoryName);
+		if($this->Categorys !== false){
+			foreach ($this->Categorys->find()->all() as $tmp){
+				$category += array($tmp->categoryId=>$tmp->categoryName);
+			}
+			$this->set('category', $category);
 		}
-		$this->set('category', $category);
+
 	}
 	
     public function index(){
 		$this->name = 'Seminar';
 		$this->autoRender = true;
-		$this->Seminar = TableRegistry::get('Seminar');
-		$this->set('entity', $this->Seminar->newEntity());
-
-		if($this->request->is('post')){
-			$data = $this->Seminar->find('all',[
-				'conditions'=>array(
-					'teacherId' => $this->request->data['search'],
-					'seminarFlag' => 2
-				)
-			]);
-		}else{
-        	$data = $this->Seminar->find('all', [
-				'conditions'=>['seminarFlag' => 2]
-			]);
+		$this->Seminar = TableRegistry::get('Seminars');
+		if($this->Seminars !== false){
+			$this->set('entity', $this->Seminars->newEntity());
+			if($this->request->is('post')){
+				$data = $this->Seminars->find('all',[
+					'conditions'=>array(
+						'teacherId' => $this->request->data['search'],
+						'seminarFlag' => 2
+					)
+				]);
+			}else{
+				$data = $this->Seminars->find('all', [
+					'conditions'=>['seminarFlag' => 2]
+				]);
+			}
 		}
         $this->set('data', $data);
 
@@ -65,7 +72,7 @@ class SeminarController extends AppController{
     }
 
     public function input(){
-		$entity = $this->Seminar->newEntity();
+		$entity = $this->Seminars->newEntity();
 		$this->set('entity',$entity);
     }
 
