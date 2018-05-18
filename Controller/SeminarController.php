@@ -13,7 +13,11 @@ class SeminarController extends AppController{
 		$this->loadModel('Categorys');
 		$this->loadModel('Matchings');
 		$this->loadModel('Seminars');
-		$this->Categorys = TableRegistry::get("categorys");
+		$this->lodoModel('Ideas');
+		$this->lodoModel('Teachers');
+		$this->lodoModel('Stuents');
+		
+		//$this->Categorys = TableRegistry::get("categorys");
 		/*$this->viewBuilder()->layout("Seminar");*/
 	}
 
@@ -31,7 +35,6 @@ class SeminarController extends AppController{
 	
     public function index(){
 		$this->name = 'Seminar';
-		$this->autoRender = true;
 		$this->Seminar = TableRegistry::get('Seminars');
 		if($this->Seminars !== false){
 			$this->set('entity', $this->Seminars->newEntity());

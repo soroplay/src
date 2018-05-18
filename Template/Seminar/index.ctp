@@ -3,7 +3,7 @@
 		<?=$this->Html->link('発案', ['action'=>'input']);?>
     </div>
 	<div class ="basemenu_right">
-		<?=$this->Form->create($entity,['url'=>['action'=>'index']]) ?>
+		<?=$this->Form->create($entity,['url'=>['action'=>'index']]) ?> 
 		<?=$this->Form->text("search", ['size'=>'15', 'placeholder'=>'講師IDで検索']) ?>
 		<?=$this->Form->input(" ",
 							['type'=>'select','empty'=>'選択してください',
