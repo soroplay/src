@@ -12,8 +12,9 @@
  * @license   https://opensource.org/licenses/mit-license.php MIT License
  */
 namespace App\View;
-
 use Cake\View\View;
+use BootstrapUI\View\UIView;
+
 
 /**
  * Application View
@@ -22,7 +23,7 @@ use Cake\View\View;
  *
  * @link https://book.cakephp.org/3.0/en/views.html#the-app-view
  */
-class AppView extends View
+class AppView extends UIView
 {
 
     /**
@@ -34,7 +35,15 @@ class AppView extends View
      *
      * @return void
      */
+    //public $layout = 'BootstrapUI.default';
     public function initialize()
     {
+        
+        //$this->loadHelper('Html', ['className' => 'BootstrapUI.Html']);
+        //$this->loadHelper('Form', ['className' => 'BootstrapUI.Form']);
+        //$this->loadHelper('Flash', ['className' => 'BootstrapUI.Flash']);
+        //$this->loadHelper('Paginator', ['className' => 'BootstrapUI.Paginator']);
+        //parent::initialize();
+        //$this->layout = 'default';
     }
 }

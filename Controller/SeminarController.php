@@ -13,14 +13,16 @@ class SeminarController extends AppController{
 		$this->loadModel('Categorys');
 		$this->loadModel('Matchings');
 		$this->loadModel('Seminars');
-		$this->lodoModel('Ideas');
-		$this->lodoModel('Teachers');
-		$this->lodoModel('Stuents');
+		$this->loadModel('Ideas');
+		$this->loadModel('Teachers');
+		$this->loadModel('Stuents');
 		
 		//$this->Categorys = TableRegistry::get("categorys");
 		/*$this->viewBuilder()->layout("Seminar");*/
 	}
 
+
+	
 	public function beforeFilter(Event $event){
 		parent::beforeFilter($event);
 		$category = array();
@@ -81,6 +83,10 @@ class SeminarController extends AppController{
 		$entity = $this->Seminars->newEntity();
 		$this->set('entity',$entity);
     }
+
+	public function topguestteacher(){
+		
+	}
 
 	/*
     public function addRecord(){

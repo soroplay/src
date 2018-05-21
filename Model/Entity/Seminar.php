@@ -23,16 +23,8 @@ class Seminar extends Entity
      *
      * @var array
      */
-    protected $_accessible = [
-        'seminarId' => true,
-        'ideaId' => true,
-        'teacherId' => true,
-        'seminarFlag' => true,
-        'seminarTitle' => true,
-        'outline' => true,
-        'capacity' => true,
-        'venue' => true,
-        'remarks' => true,
-        'dueDat' => true
+    protected $_accessible =
+    [
+        '*' => true
     ];
 }
