@@ -1,137 +1,175 @@
 <?php
 namespace App\Controller;
-use Cake\ORM\TableRegistry;
-use App\Controller\AppController;
+session_start();
+use Cake\ORM\TableRegistry;	
+use Cake\ORM\Query;
 use Cake\Event\Event;
-
 class SeminarController extends AppController{
+
 	public function initialize(){
-		parent::initialize();
-		$this->viewBuilder()->autoLayout(true);
-        $this->viewBuilder()->layout("seminar");
-		date_default_timezone_set('Asia/Tokyo');
-		$this->loadModel('Categorys');
-		$this->loadModel('Matchings');
-		$this->loadModel('Seminars');
-		$this->loadModel('Ideas');
-		$this->loadModel('Teachers');
-		$this->loadModel('Stuents');
+		$this->loadModel('Categorys'); 
+		$this->loadModel('Matchings'); 
+		$this->loadModel('Seminars'); 
+		$this->loadModel('Ideas'); 
+		$this->loadModel('Students');
+																																																																																																																																																	 
+	}
+	public function beforeFilter(Event $event){ 
+		parent::beforeFilter($event); 
+		$category = array(); 
+		if($this->Categorys !== false){ 
+		 foreach ($this->Categorys->find()->all() as $tmp){ 
+		  $category += array($tmp->categoryId=>$tmp->categoryName); 
+		 } 
+		 $this->set('category', $category); 
+		} 
+	  
+	}
+	public function login(){
+		$session = $this->request->session();
+		$this->Students = TableRegistry::get('students');
+		$this->Teachers= TableRegistry::get('teachers');
+		$this->Seminars= TableRegistry::get('seminars');
 		
-		//$this->Categorys = TableRegistry::get("categorys");
-		/*$this->viewBuilder()->layout("Seminar");*/
-	}
-
-
-	
-	public function beforeFilter(Event $event){
-		parent::beforeFilter($event);
-		$category = array();
-		if($this->Categorys !== false){
-			foreach ($this->Categorys->find()->all() as $tmp){
-				$category += array($tmp->categoryId=>$tmp->categoryName);
+		$this->Matchings= TableRegistry::get('matchings');
+		$this->set('entity',$this->Students->newEntity());
+		$this->set('entity',$this->Teachers->newEntity());
+		$this->set('entity',$this->Seminars->newEntity());
+		$this->set('entity',$this->Matchings->newEntity());
+		if($this->request->is('post')){
+			$id = $this->request->data['id'];
+			
+			$password = $this->request->data['password'];
+			$student = $this->Students->find('all',[
+				'conditions'=>array(['studentId'=>$id],
+				['password'=>$password])]
+			);			
+			$this->set('student',  $student);
+			if($student->isEmpty()){
+				$teacher = $this->Teachers->find('all',[                              
+					'conditions'=>array(['teacherId'=>$id],
+					['password'=>$password])]
+				);
+				$this->set('teacher', $teacher);
+			
+				if($teacher->isEmpty()){
+					$this->redirect(['action'=> 'login']);
+				}else{
+					$capacity = $this->Seminars->find('all',[
+						'conditions'=>['teacherId'=>$id],
+						'fields'=>['capacity']]
+					);
+					
+					$seminars = $this->Seminars->find()
+					->select(['seminarId','dueDate','capacity'])
+					->where(['teacherId'=>$id]);
+					
+					
+					foreach($seminars  as  $obj){
+						$studentid = $this->Matchings->find()
+						->select(['studentId'])
+						->where(['seminarId'=>$obj->seminarId]);
+					
+						   if((strtotime($obj->dueDate) <= strtotime(date('Y/m/d')))||($obj->capacity <= $studentid->count())){
+							$session->write('loginid',$this->request->data['id']);
+								$this->redirect(['action'=> 'teacherseminar_Registry']);
+						   }
+					}
+					$session->write('loginid',$this->request->data['id']);
+					$this->redirect(['action'=> 'teacherTop']);
+			   
+				}
+	  		}else{
+				$student = $this->Students->find('all',[
+					'conditions'=>array(['studentId'=>$this->request->data['id']],
+					['password'=>$this->request->data['password']])]
+				);
+				$session->write('login.studentid',$this->request->data['id']);
+				$this->redirect(['action'=> 'studentTop']);
 			}
-			$this->set('category', $category);
-		}
+			
+		}	
+	}	
+   /* public function teacherTop(){
+		 	$session = $this->request->session();
+		    $loginid = $session->read('loginid'); 
+				$this->autoRender = true; 
+				$this->Category = TableRegistry::get('categorys');
+				$this->Seminars = TableRegistry::get('seminars'); 
+				$this->Ideas = TableRegistry::get('ideas'); 
+				$tmp_category = 0; 
+				
+				if($this->Seminars !== false){ 
+					$this->set('entity', $this->Ideas->newEntity()); 
+					$joinedSeminar = $this->Seminars->find('all', [ 
+					'conditions'=>['teacherId' => $loginid,'seminarFlag'=> 1], 
+					'fields'=>['ideaId'] 	
+					
+					]); 
 
-	}
-	
-    public function index(){
-		$this->name = 'Seminar';
-		$this->Seminar = TableRegistry::get('Seminars');
-		if($this->Seminars !== false){
-			$this->set('entity', $this->Seminars->newEntity());
-			if($this->request->is('post')){
-				$data = $this->Seminars->find('all',[
-					'conditions'=>array(
-						'teacherId' => $this->request->data['search'],
-						'seminarFlag' => 2
-					)
-				]);
-			}else{
-				$data = $this->Seminars->find('all', [
-					'conditions'=>['seminarFlag' => 2]
-				]);
-			}
-		}
-        $this->set('data', $data);
+					if($this->request->is('post') && !empty($this->request->data['category'])){ 
+						$tmp_category = $this->request->data['category']; 
+						$data = $this->Ideas->find() 
+						->where(['ideaFlag' => 1, 'categoryId' => $tmp_category, 'ideaId IN' => $joinedSeminar]); 
+						$Data = $this->Ideas->find() 
+							->where(['ideaFlag' => 1, 'categoryId' => $tmp_category, 'ideaId NOT IN' => $joinedSeminar]); 
+					}else{ 
+						$data = $this->Ideas->find() 
+							->where(['ideaFlag' => 1, 'ideaId IN' => $joinedSeminar]); 
+						$Data = $this->Ideas->find() 
+							->where(['ideaFlag' => 1, 'ideaId NOT IN' => $joinedSeminar]); 
+					
+					} 
+			
+				} 
+				echo $loginid;
+			   echo $data->count();
+			   echo $Data->count();
+				$i = 0; 
+				foreach($joinedSeminar as $obj){ 
+					$id[$i] = $obj->ideaId; 
+					$i = $i + 1; 
+				} 
+				echo $joinedSeminar->count();
+				//echo $data_tmp->count();
+				//print_r($data);
+				echo $Data->count();
+				$this->set('joinedId', $id); 
+				//$this->set('data', $this->paginate($data));
+				$this->set('Date',$this->paginate($Data));
 
-		/*$sum = 0;
-		foreach($data as $obj){
-			$sum += $obj->value;
-		}
-		$remain = 50000 - $sum;
-		$this->set('remain', $remain);
-
-		$today = date("Y-m-d");
-		$interval_day = $this->day_diff($today, $end);
-
-		$dayValue = $remain / $interval_day;
-		$imageName = "";
-		if($dayValue >= 3000){
-			$imageName = "good.png";
-		}else if($dayValue >= 1500){
-			$imageName = "normal.png";
-		}else if($dayValue >= 500){
-			$imageName = "bad.png";
-		}else{
-			$imageName = "verybad.png";
-		}
-		$this->set('imageName', $imageName);*/
-    }
-
-    public function input(){
-		$entity = $this->Seminars->newEntity();
-		$this->set('entity',$entity);
-    }
-
-	public function topguestteacher(){
 		
+
+	}*/
+	
+	
+	public function logout(){
+		$session = $this->request->session();
+		$session->destroy();
+		$this->redirect(['action'=> 'guestTop']);
 	}
-
-	/*
-    public function addRecord(){
-        if($this->request->is('post')){
-            $data = array(
-                'costdate'=>h($this->request->data['costdate']),
-                'usedetail'=>h($this->request->data['usedetail']),
-                'value'=>h($this->request->data['value'])
-            );
-            $this->Costs->save($this->Costs->newEntity($data));
-        }
-		$this->set('costdate', isset($data) ? $data['costdate'] : null);
-		$this->set('usedetail', isset($data) ? $data['usedetail'] : null);
-		$this->set('value', isset($data) ? $data['value'] : null);
-    }
-	*/
-
-	/*
-	public function delRecord($id){
-        if($id != null){
-            try{
-                $entity = $this->Costs->get($id);
-                $this->Costs->delete($entity);
-            }catch(Exception $e){
-                Log::write('debug', $e->getMessage());
-            }
-        }
-        return $this->redirect(['action' => 'index']);
+	public function teacherRegistry(){
+		$this->Teachers = TableRegistry::get('teachers'); 
+		$this->set('entity', $this->Teachers->newEntity());
+		if($this->request->is('post')){
+			switch($this->request->data['confirm']) {
+				case 'confirm':
+					if ($this->request->data['password']==$this->request->data['chk_pass']){
+						$this->render('teacher_confirm');
+					}else{
+						$this->redirect(['action'=> 'teacherRegistry']);
+					}
+					break;
+				case 'registry':
+					$teacher = $this->Teachers->newEntity($this->request->data);
+					$this->Teachers->save($teacher);
+					$this->redirect(['action' => 'login']);
+					break;
+			}				
+		}
 	}
-	*/
+	
 
-	/*
-    function day_diff($date1, $date2) {
-	    // 日付をUNIXタイムスタンプに変換
-	    $timestamp1 = strtotime($date1);
-	    $timestamp2 = strtotime($date2);
-	 
-	    // 何秒離れているかを計算
-	    $seconddiff = abs($timestamp2 - $timestamp1);
-	 
-	    // 日数に変換
-	    $daydiff = $seconddiff / (60 * 60 * 24);
-	 
-	    // 戻り値
-	    return $daydiff;
-    }
-	*/
+    
 }
+   
