@@ -148,6 +148,8 @@ class SeminarController extends AppController{
 		$session->destroy();
 		$this->redirect(['action'=> 'guestTop']);
 	}
+
+
 	public function teacherRegistry(){
 		$this->Teachers = TableRegistry::get('teachers'); 
 		$this->set('entity', $this->Teachers->newEntity());
@@ -168,8 +170,50 @@ class SeminarController extends AppController{
 			}				
 		}
 	}
-	
 
-    
+
+	//(セミナーフラグ・アイデアフラグ)カウントアップ
+	public function flagup(){
+		if(!empty($this->request->data['seminarId'])){
+			//seminarId更新
+			$seminarsTable = TableRegistry::get('Seminars');
+			$seminars = $seminarsTable->get([$this->request->data['seminarId']]);
+			$seminars->seminarFlag += 1;
+			try{
+				$seminarsTable->save($seminars);
+			}catch(\Exception $e){
+				print("データベース保存エラー(seminar)");
+				print('時間を置いてもう一度お願いします');
+				exit();
+			}
+		}
+		if(!empty($this->request->data['ideaId'])){
+			//ideaId更新
+			$ideasTable = TableRegistry::get('Ideas');
+			$ideas = $ideasTable->get([$this->request->data['ideaId']]);
+			$ideas->ideaFlag += 1;
+			try{
+				$ideasTable->save($ideas);
+			}catch(\Exception $e){
+				print('データベース保存エラー(idea)');
+				print('時間を置いてもう一度お願いします');
+				exit();
+			}
+		}
+		if(!empty($this->request->data['matchinginput']) && $this->request->data['matchinginput'] == true){
+			$matchingsTable = TableRegistry::get('matchings');
+			$matching = $matchingsTable->newEntity();
+			$matching->seminarId = $this->request->data['seminarId'];
+			$matching->studentId = $this->request->data['studentId'];
+			$matching->estFlag = 1;
+			try{
+				$matchingsTable->save($matching);
+			}catch(\Exception $e){
+				print('データセーブエラー');
+				exit();
+			}
+		}
+		$this->redirect(['action'=>'index']);
+	}
 }
    
