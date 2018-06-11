@@ -1,0 +1,37 @@
+
+.menu{
+    position: relative;
+    float: left;    
+}
+
+.menu img{
+    text-align: center;
+    margin-top:15px; 
+    margin-bottom: 80px;
+}
+
+.menu a{
+    text-align: center;
+    display: block;
+    font-family: arial black;
+    margin-bottom: 80px;
+    color: black;
+    font-size: 20px;
+}
+
+.coverImage {
+    position: relative;
+     width:1230px;
+    height: 824px;
+    float: right;    
+}
+
+.coverImage p{
+    font-family: arial black;
+    position: relative;
+    font-size:40px;
+    color: white;
+    left: 20px;
+    right: 0px;
+    bottom: 170px;
+}

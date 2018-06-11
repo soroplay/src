@@ -1,0 +1,75 @@
+body{
+    background-image: url("/img/RegistBack.png");
+    margin: 0;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul{
+    padding-top:6px;
+    margin-left: 50px;
+}
+li{
+    margin-top: 30px;
+}
+
+label {
+    display: block;
+    margin-right: 160px;
+    width: 100px;
+    float: left;
+    font-weight: bold;
+    font-size:20px;
+}
+
+input{
+    font-size: 20px;
+}
+
+#main-contents {
+    background-color: rgba(128, 128, 128, 0.7);
+    width: 600px;
+    height: 560px;
+    margin: auto;
+    margin-top: 60px;
+}
+
+a{
+    display: inline-block;
+    color: white;
+    margin-left: 29%;
+}
+.btn {
+    margin-left: 45%;
+    margin-top: 5%;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    background-color: #000;
+    display: inline-block;
+    padding: 0.2em 1em;
+    text-decoration: none;
+    color: white;
+    border-radius: 3px;
+    transition: .4s;
+}
+
+#logo {
+    width: 100%;
+    margin-left: 0px;
+    background-color: black;
+}
+textarea{
+    width: 380px;
+    height: 90px;
+    margin-left: 50px;
+}
+
+#semi-check p{
+    font-size: 50px;
+    margin-bottom: 0px;
+    margin-left: 200px;
+    padding-top: 50px;
+}

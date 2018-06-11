@@ -1,0 +1,146 @@
+body{
+    margin: 0px;
+    background-image: url("/img/Top-back.jpg");
+}
+
+#kirinuki{
+    position: absolute;
+    z-index: 0;
+    width: 1453px;
+}
+/*ロゴの枠と色*/
+#header-logo {
+    position: absolute;
+    width: 100%;
+    border-bottom: solid 1px #a2a1a1;
+    height: 85px;
+}
+/*ロゴ画像の設定*/
+#logo-inline{
+    position: absolute;
+    margin-top: 10px;
+    padding-bottom:13px; 
+    padding-left: 13px;
+    width: 360px;
+}
+/*ホーム画像の設定*/
+#logo-home{
+    position: absolute;
+    top:10px;
+    right: 330px;
+    display: inline-block;
+    background-color: white;
+    padding: 18px 33px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+#logo-home:hover{
+    transition: 0.5s;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px gray;
+}
+#logo-home-sent{
+    position: absolute;
+    right: 360px;
+    top:50px;
+    font-size: 4px;
+    color: darkgray;
+}
+
+/*ログイン画像の設定*/
+#logo-login{
+    position: absolute;
+    right: 200px;
+    top: 10px;
+    display: inline-block;
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 19px 33px;
+    margin-left: 30px;
+    border-radius: 4px;
+}
+
+#logo-login:hover{
+    transition: 0.5s;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px gray;
+}
+
+#logo-login-sent{
+    position: absolute;
+    right: 225px;
+    top:50px;
+    font-size: 4px;
+    color: darkgray;
+}
+/*新規登録*/
+#logo-new{
+    position: absolute;
+    display: inline-block;
+    right: 70px;
+    top: 10px;
+    margin-bottom: 10px;
+    padding: 16px 33px;
+    background-color: white;
+    margin-left: 30px;
+    border-radius: 4px;
+}
+
+#logo-new:hover{
+    transition: 0.5s;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px gray;
+}
+
+#logo-new-sent{
+    position: absolute;
+    right: 100px;
+    top:50px;
+    font-size: 4px;
+    color: darkgray;
+}
+
+/*メインコンテンツ*/
+#main-content {
+    height: 900px;
+}
+#logo{
+    position: absolute;
+    margin-top: 140px;
+    margin-left: 600px;
+}
+
+
+
+#teach-sent {
+    position: absolute;
+    z-index: 2;
+    top: 540px;
+    left: 150px;
+    font-size: 20px;
+}
+
+#student-sent {
+    position: absolute;
+    z-index: 2;
+    top: 536px;
+    right: 140px;
+    font-size: 20px;
+}
+/*hover時の画像*/
+#hovlogo1 {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 475px;
+    left: 115px;
+}
+
+#hovlogo2 {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 470px;
+    right: 120px;
+}

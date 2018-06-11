@@ -1,0 +1,141 @@
+body{
+    background: white;
+    margin: 0px;
+}
+
+.animsition{
+    height: 4000px;
+}
+#item-link{
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    z-index: 1;
+}
+
+#item-logo img{
+    position: relative;
+    z-index: 2;
+    left: 960px;
+    top: -80px;
+    padding: 30px;
+    height: 20px;
+    background-color: white;
+}
+
+#item-logo img:hover{
+    transition: 0.5s;
+    background-color: rgb(169, 169, 169);
+}
+
+#logo{
+   background-color: black;
+    height: 70px;
+}
+
+#home {
+    display: inline-block;
+}
+
+#home img{
+    
+}
+
+#genre {
+ display: inline-block;
+}
+
+#genre img{
+    
+}
+#login {
+   display: inline-block;
+}
+
+#login img{
+    
+}
+#new {
+     display: inline-block;
+}
+
+#new img{
+    
+}
+
+
+
+
+#ema {
+    position: relative;
+    top: 240px;
+    left: 600px;
+}
+
+#main-contents {
+  
+}
+
+
+.circle1{
+    display: none;
+    z-index: 1;
+    position: absolute;
+    left: 279px;
+    top:500px;
+    background-color: red;
+    height: 110px;
+    width: 110px;
+    border-radius:75px;
+}
+
+.circle2{
+    display: none;
+    z-index: 3;
+    position: relative;
+    top:10px;
+    left: 1060px;
+    background-color: red;
+    height: 110px;
+    width: 110px;
+    border-radius:75px;
+}
+
+#teach-link {
+    z-index: 2;
+    position: relative;
+    top: 190px;
+    left: 280px;
+    width: 100px;
+}
+
+#teach-link p{
+    padding: 10px 20px 10px 20px;
+    width: 100px;
+    font-family: 'ヒラギノ明朝 Pro W6','HiraMinPro-W6';
+    font-size: 20px;
+}
+
+#learn-link {
+    z-index: 4;
+    position: relative;
+    top:110px;
+    left: 1010px;
+    margin: 0;
+    width: 100px;
+}
+
+#learn-link p{
+    width: 100px;
+    padding: 10px 20px 10px 20px;
+    width: 150px;
+    padding-left: 80px;
+    font-size: 20px;
+    font-family: 'HiraMinPro-W6';
+}
+
+a{
+    position: absolute;
+    z-index: 200;
+}
+

@@ -1,0 +1,108 @@
+body{
+    margin: 0;
+}
+img:hover{
+    background: rgba(178, 178, 178, 0.66);
+}
+#title {
+    margin-left: 140px;
+    margin-top: 140px;
+}
+
+#title p{
+    font-size: 20px;
+    border-bottom: solid 2px black;
+}
+
+#seminar-name{
+    margin-top: 80px;
+    margin-left: 690px;
+    font-size: 20px;
+}
+#seminar-allow {
+    width: 20px;
+    margin-left: 690px;
+    padding: 2px 30px;
+}
+
+#detail {
+    display: none;
+    margin-left: 340px;
+    background-color: #d3d2d2;
+    width: 800px;
+    height: 300px;
+    box-shadow: 6px 6px 6px 6px #919191;
+}
+
+#logo {
+    width: 100%;
+    margin-left: 0px;
+    background-color: black;
+}
+
+#home {
+    position: fixed;
+    width: 100px;
+    height: 70px;
+    top: 0px;
+    left: 800px;
+    display: inline-block;
+    background: white;
+}
+
+#home img{
+    padding: 20px 38px;
+}
+
+#genre {
+    position: fixed;
+    background: white;
+    width: 100px;
+    height: 70px;
+    top:0px;
+    left: 950px;
+    display: inline-block;
+    background: white;
+}
+
+#genre img{
+    padding: 20px 37px;
+}
+#login {
+    position: fixed;
+    background: white;
+    width: 100px;
+    height: 70px;
+    display: inline-block;
+    background: white;
+    top: 0px;
+    left: 1100px;
+}
+
+#login img{
+    padding: 20px 38px;
+}
+#new {
+     position: fixed;
+    background: white;
+    width: 100px;
+    height: 70px;
+    display: inline-block;
+    background: white;
+    top: 0px;
+    left: 1260px;
+}
+
+#new img{
+    padding: 20px 38px;
+}
+
+#detail-sent{
+    display: none;
+    position: absolute;
+    padding: 10px 40px;
+    left: 490px;
+    top: 337px;
+    font-size:  14px;
+    border: dashed 2px #5b8bd0;
+}

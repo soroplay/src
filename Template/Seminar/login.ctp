@@ -1,4 +1,4 @@
-ログイン<br>
+
 <?= $this->Form->create($entity,['url'=>['action'=>'login']])?>
 
 <?=$this->Form->create() ?>

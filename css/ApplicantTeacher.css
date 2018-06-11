@@ -1,0 +1,155 @@
+body{
+    margin: 0px;
+}
+
+
+#logo{
+    width: 100%;
+    background-color: black;
+}
+#main-contents {
+    position: absolute;
+    background-color: white;
+    width: 700px;
+    height: 190px;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-left: 25%;
+}
+
+#prof{
+    z-index: 2;
+    margin-left: 10px;
+    padding-top: 5px;
+}
+
+#teacher-name p{
+    margin-left: 30%;
+    margin-top: -11%;
+    margin-bottom: 0px;
+    font-size: 30px;
+}
+
+#seminar-name {
+    width: 700px;
+    border-top: solid 1px rgba(128, 128, 128, 0.59);
+    margin-top: 5%;
+    font-size: 30px;
+}
+
+#seminar-name p{
+    margin-top:20px;
+    margin-left: 36%;
+    font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+#btn-submit{
+    position: absolute;
+    top:45px;
+    left: 770px;
+    margin-left: 0px;
+    width: 130px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    border: solid 3px #212121;
+    color:black;
+    font-size: 20px;
+}
+#btn-submit:hover{
+    transition: 0.5s;
+    background-color: rgba(0, 0, 0, 0.33);
+    color: white;
+    border: 4px solid black;
+}
+
+#seminar-detail {
+    position: absolute;
+    top:110px;
+    left:580px;
+    font-size: 25px;
+    padding: 20px;
+}
+
+#seminar-detail:hover{
+    transition: 0.2s;
+    background-color: rgba(128, 128, 128, 0.63);
+    border-radius: 50%;
+}
+
+#submit-modal {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow:4px 4px 4px 4px rgba(139, 136, 136, 0.4);
+    margin: 0 auto;
+    width: 600px;
+    height: 300px;
+    margin-top: 10%;
+    margin-left: 30%;
+    top: 10%;
+    border: solid 2px black;
+}
+
+#submit-modal p{
+    font-size: 26px;
+    margin-left: 130px;
+    padding-top: -10px;
+}
+
+
+
+#yes button{
+    display: inline-block;
+    position: absolute;
+    left: 10%;
+    top: 60%;
+    background-color:white;
+    color: black;
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    border: solid 2px black; 
+    box-shadow:1px 1px 1px 1px rgba(139, 136, 136, 0.4);
+}
+
+
+#no button{
+    display: inline-block;
+    position: absolute;
+    left: 57%;
+    top: 60%;
+    background-color:white;
+    color: black;
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    border: solid 2px black;
+    box-shadow:1px 1px 1px 1px rgba(139, 136, 136, 0.4);
+}
+
+#yes button:hover{
+    background-color:rgba(128, 128, 128, 0.54);
+    transition: 0.3s;
+    border: solid 4px black;
+}
+
+#no button:hover{
+    background-color:rgba(128, 128, 128, 0.96);
+    transition: 0.5s;
+}
+
+#cancel {
+    margin-left: 560px;
+    margin-top: 10px;
+}
+
+#seminar-detail-sent {
+    display: none;
+    background-color: white;
+    width: 700px;
+    height: 300px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+

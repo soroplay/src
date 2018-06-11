@@ -1,0 +1,238 @@
+body{
+    background-image: url("/img/RegistBack.png");
+}
+#logo {
+    position: fixed;
+    top: 8px;
+}
+
+#wrapper{
+    position: fixed;
+    top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+    overflow-y: auto;
+    
+}
+
+#prof {
+    margin-top:0px;
+    margin-left: 900px;
+    width: 10;
+    height: 10;
+}
+
+.head-sent {
+    position: fixed;
+    bottom:700px;
+    left: 100px; 
+    color: white;
+    font-size: 20px;
+}
+
+.tab_wrap{display: inline-block;position: fixed;width:900px; padding-right:100px;bottom: 2px;top:140px;}
+input[type="radio"]{display:none;}
+.tab_area{font-size:0; margin:0 10px;}
+.tab_area label{width:150px; margin:0 5px; display:inline-block; padding:12px 0; color:#999; background:#ddd; text-align:center; font-size:13px; cursor:pointer; transition:ease 0.2s opacity;}
+.tab_area label:hover{opacity:0.5;}
+.panel_area{background:#fff;}
+.tab_panel{width:200px; height: 170px; padding:220px 290px; display:none;}
+.tab_panel p{font-size:14px; letter-spacing:1px; text-align:center;}
+ 
+#tab1:checked ~ .tab_area .tab1_label{background:#fff; color:#000;}
+#tab1:checked ~ .panel_area #panel1{display:block;}
+#tab2:checked ~ .tab_area .tab2_label{background:#fff; color:#000;}
+#tab2:checked ~ .panel_area #panel2{display:block;}
+#tab3:checked ~ .tab_area .tab3_label{background:#fff; color:#000;}
+#tab3:checked ~ .panel_area #panel3{display:block;}
+
+
+.seminar p{
+    
+}
+
+.seminar {
+    display: inline-block;
+    position: fixed;
+    left: 950px;
+    bottom:10px;
+    padding: 228px 70px;
+    background-color: antiquewhite;
+    margin-bottom:10px;
+}
+
+.item-list,.item-mask{
+    font-size: 20px;
+}
+
+.item-list {
+    position: relative;
+    right:290px; 
+    bottom: 170px;
+}
+
+.item-list li{
+    list-style: none;
+    margin: 20px;
+    width: 180px;
+}
+
+.item-mask{
+     position: relative;
+    left:10px; 
+    bottom: 620px;
+}
+
+.item-mask li{
+    list-style: none;
+    margin: 20px;
+}
+.prf-area {
+    position: relative;
+    bottom:150px;
+    right: 200px;
+} 
+
+.prf-area p{
+    position: relative;
+    right: 70px;
+}
+
+.prof-img {
+    position: relative;
+    bottom:850px;
+    left: 350px;
+}
+
+.prof-img p{
+    display: inline-block;
+    position: relative;
+    left: 60px;
+}
+
+.prof-sent {
+    position: relative;
+    bottom:190px;
+    right: 280px;
+    width: 870px;
+    height: 30px;
+    padding-top:10px;
+    padding-left: 10px;
+    background-color: black;
+    color: white;
+}
+
+textarea{
+    width: 370px;
+    height: 200px;
+    font-size: 20px;
+}
+
+.seminar-tab h2{
+    position: relative;
+    bottom:170px;
+}
+
+.seminar-tab p{
+    position: relative;
+    right: 270px;
+    bottom:150px;
+    width: 870px;
+    border-bottom: solid 3px black;
+}
+
+.delete {
+    position: relative;
+    bottom:200px;
+    left: 550px;
+}
+
+.edit-sent a{
+    position: relative;
+    bottom:222px;
+    left: 540px;
+    color: white;
+}
+
+.teacher-prof {
+    position: relative;
+    bottom:140px;
+    right: 180px;
+}
+
+#page3-title p{
+    position: relative;
+    bottom: 310px;
+    font-size: 20px;
+}
+
+
+#teacher-name {
+    position: relative;
+    bottom:290px;
+    right: 140px;
+}
+
+#seminar-name {
+    position: relative;
+    bottom:280px;
+    right: 70px;
+    width: 500px;
+    border-bottom: solid 3px black;
+}
+
+
+
+#seminar-name p{
+    position:relative;
+    right: 210px;
+}
+
+#review {
+    position: relative;
+    bottom: 340px;
+    left: 340px
+}
+
+#wanted-seminar {
+    font-size: 20px;
+    position: relative;
+    bottom:210px;
+    left: 90px;
+}
+
+#wanted-name {
+    position: relative;
+    bottom:200px;
+    right: 100px;
+}
+
+#wanted-name p{
+    border-bottom: solid 3px black;
+    width: 330px;
+    position: relative;
+}
+
+#wanted-tail {
+    position: relative;
+    bottom:240px;
+    left: 120px;
+}
+
+#wanted-ato {
+    position: relative;
+    bottom:263px;
+    left:190px;
+}
+
+#wanted-join {
+    position: relative;
+    bottom:290px;
+    left: 240px;
+}
+
+#wanted-list {
+    position: relative;
+    left: 90px;
+}

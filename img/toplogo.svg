@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="239px" height="136px" viewBox="0 0 239 136" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Untitled 9</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M116.622463,2 L147.495264,2 L147.495264,4.25304465 L118.186603,44.6463134 L118.184869,44.6860622 L131.541272,44.6860622 C135.925597,44.6860622 139.173196,43.5088074 141.284168,41.1542625 C143.151565,39.0432912 144.65358,35.3491468 145.790257,30.0717185 L147.921516,30.0717185 L147.129905,47 L118.083897,47 L81,47 L81,44.6860622 L84.0446549,44.6860622 C86.2368175,44.6860622 87.3328823,43.8741624 87.3328823,42.2503383 L87.3328823,6.56698241 C87.3328823,5.06494513 86.4397924,4.31393775 84.6535859,4.31393775 L81,4.31393775 L81,2 L116.622463,2 Z M117.523183,16.9519526 L117.535859,17.1623816 L115.465494,17.1623816 C114.653582,12.6562698 113.415435,9.3883728 111.751015,7.35859269 C110.086595,5.32881258 107.752383,4.31393775 104.748309,4.31393775 L95.9188092,4.31393775 C94.4573675,4.31393775 93.7266576,5.06494513 93.7266576,6.56698241 L93.7266576,22.5818674 L97.623816,22.5818674 C99.8565741,22.5818674 101.602159,21.83086 102.860622,20.3288227 C104.119086,18.8267855 104.748309,16.5737633 104.748309,13.5696888 L106.879567,13.5696888 L106.879567,34.4560217 L104.748309,34.4560217 C104.748309,28.0419165 102.272014,24.834912 97.3193505,24.834912 L93.7266576,24.834912 L93.7266576,42.67659 C93.7266576,44.0162449 94.68064,44.6860622 96.5886333,44.6860622 L103.59134,44.6860622 C110.394888,44.6860622 114.589837,40.5577145 116.176279,32.7750062 C116.441178,30.9292657 116.588032,29.9838432 116.616839,29.9387386 C116.617549,29.9376267 116.61914,29.935571 116.621611,29.9325717 C116.621895,29.9300819 116.622179,29.9275917 116.622463,29.9251013 L116.62729,29.9258263 C116.959389,29.5372789 124.894181,20.9999827 140.431664,4.31393775 L131.236806,4.31393775 C127.177246,4.31393775 124.152919,5.31866384 122.163735,7.32814614 C120.176733,9.33542357 118.215341,12.1308284 117.523183,16.9519526 Z" id="path-1"></path>
+        <filter x="-10.5%" y="-11.1%" width="120.9%" height="131.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-3" font-family="Athelas-Regular, Athelas" font-size="39" font-weight="normal">
+            <tspan x="4.372" y="107">E M A Z E M I</tspan>
+        </text>
+        <filter x="-3.0%" y="-11.6%" width="106.1%" height="132.6%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <text id="text-5" font-family="HiraMinProN-W3, Hiragino Mincho ProN" font-size="17" font-weight="300">
+            <tspan x="80" y="78">エマゼミ</tspan>
+        </text>
+        <filter x="-16.2%" y="-41.2%" width="132.4%" height="229.4%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <text id="text-7" font-family="AppleMyungjo" font-size="12" font-weight="normal">
+            <tspan x="55.4243902" y="126">SEMINAR×MATCHING</tspan>
+        </text>
+        <filter x="-5.1%" y="-35.7%" width="110.1%" height="200.0%" filterUnits="objectBoundingBox" id="filter-8">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Combined-Shape">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <use fill="#000000" fill-rule="evenodd" xlink:href="#path-1"></use>
+        </g>
+        <g id="E-M-A-Z-E-M-I" fill="#000000">
+            <use fill-opacity="1" filter="url(#filter-4)" xlink:href="#text-3"></use>
+            <use fill-rule="evenodd" xlink:href="#text-3"></use>
+            <use fill-opacity="1" xlink:href="#text-3"></use>
+        </g>
+        <g id="エマゼミ" fill="#000000">
+            <use fill-opacity="1" filter="url(#filter-6)" xlink:href="#text-5"></use>
+            <use fill-rule="evenodd" xlink:href="#text-5"></use>
+            <use fill-opacity="1" xlink:href="#text-5"></use>
+        </g>
+        <g id="SEMINAR×MATCHING" fill="#000000">
+            <use fill-opacity="1" filter="url(#filter-8)" xlink:href="#text-7"></use>
+            <use fill-rule="evenodd" xlink:href="#text-7"></use>
+            <use fill-opacity="1" xlink:href="#text-7"></use>
+        </g>
+    </g>
+</svg>

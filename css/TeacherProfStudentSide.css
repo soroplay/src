@@ -1,0 +1,92 @@
+body{
+    background-image: url(/img/RegistBack.png);
+}
+
+
+.teachre-prof {
+    position: absolute;
+    padding-top: 70px;
+    margin-left: 60px;
+}
+
+#main-contens {
+    position: relative;
+    background-color:rgba(128, 128, 128, 0.7);
+    width: 650px;
+    height: 650px;
+    margin: auto;
+    margin-top: 90px; 
+}
+
+#teach-name {
+    width: 380px;
+    position: absolute;
+    left:36%;
+    top:10%;
+    border-bottom: solid 3px black;
+}
+
+#teach-evalu {
+    position: absolute;
+    top:23%;
+    left: 37%;
+    border-bottom: solid 3px black;
+}
+
+#teach-evalu p{
+    display: inline-block;
+}
+
+#evalu-star {
+    margin-left: 260px;
+}
+
+#carrear {
+    width: 520px;
+    position: absolute;
+    top:41%;
+    left: 10%;
+    border-bottom: solid 2px black;
+}
+
+#genre-sel {
+    position: absolute;
+    top: 43%;
+    left: 67%;
+}
+
+#line {
+    position: absolute;
+    top: 40%;
+    border-bottom: solid 2px black;
+}
+
+#seminar-name {
+    width:600px;
+    height: 70px;
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    border-bottom: solid 2px black;
+}
+
+#seminar-name p{
+ position: relative;
+    left: 40%;
+    
+}
+
+.bottom-detEail {
+    position: absolute;
+    left: 47%;
+    top: 54%;
+}
+
+
+
+.seminar-detail {
+    display: none;
+    position: absolute;
+    top:60%;
+    left: 6%;
+}
