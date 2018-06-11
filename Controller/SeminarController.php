@@ -120,7 +120,20 @@ class SeminarController extends AppController{
 					['password'=>$this->request->data['password']])]
 				);
 				$session->write('login.studentid',$this->request->data['id']);
-				$this->redirect(['action'=> 'studentTop']);
+
+				$seminar = $this->Seminars->find('all', [
+					'conditions'=>['seminarFlag'=>4],
+					'fields'=>['seminarId']
+				]);
+				$rateCnt = $this->Matchings->find('all', [
+					'conditions'=>['seminarId IN'=>$seminar, 'studentId'=>$this->request->data['id'], 'estFlag'=>1]
+				])->count();
+
+				if($rateCnt == 0){
+					$this->redirect(['action'=>'studentTop']);
+				}else{
+					$this->redirect(['action'=>'studentmypage#est']);
+				}
 			}
 			
 		}	
@@ -156,7 +169,8 @@ class SeminarController extends AppController{
 				} 
 
 
-				$i = 0; 
+				$i = 0;
+				$id = array();
 				foreach($joinedSeminar as $obj){ 
 					$id[$i] = $obj->ideaId; 
 					$i = $i + 1; 
@@ -227,6 +241,7 @@ class SeminarController extends AppController{
 		}
 
 		$i = 0;
+		$id = array();
 		foreach($joinedSeminar as $obj){
 			$id[$i] = $obj->seminarId;
 			$i = $i + 1;
