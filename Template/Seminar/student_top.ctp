@@ -1,3 +1,5 @@
+<p><?=$this->Html->link('ログアウト',['action'=>'logout']);?></p>
+<p><?=$this->Html->link('マイページ',['action'=>'studentMyPage']);?></p>
 <div class="basemenu_wrapper">
 	<div class ="basemenu_left">
 		<input type="button" value="発案" onClick="location.href='create_seminar'">

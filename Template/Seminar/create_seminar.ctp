@@ -20,6 +20,7 @@
 			<td style="width: 68px">開催日時</td>
 			<td><?=$this->Form->date("eventDate",[
 				'id'=>'textform',
+				'minYear'=>date('Y'),
 				'dateFormat'=>'YMD',
 				'monthNames'=>false,
 				'empty'=>['year'=>'年', 'month'=>'月', 'day'=>'日']

@@ -1,7 +1,7 @@
 <p><?=$this->Html->link('ログアウト',['action'=>'logout']);?></p>
 <p><?=$this->Html->link('マイページ',['action'=>'teacherMyPage']);?></p>
 <?=$this->Form->create($entity,['url'=>['action'=>'teacherTop']]) ?> 
-<?=$this->Form->select("category", ['options'=>$category], ['empty'=>'カテゴリー'], ['default'=>'*']) ?> 
+<?=$this->Form->select("category", $category, ['empty'=>'すべてのカテゴリー'], ['default'=>'*']) ?> 
 <?=$this->Form->button("検索") ?> 
 <?=$this->Form->end() ?> 
 	
