@@ -523,5 +523,155 @@ class SeminarController extends AppController{
 		}
 		$this->redirect(['action'=>'index']);
 	}
+
+	public function ideadelete(){
+		$ideasTable = TableRegistry::get('Ideas');
+		$ideas = $ideasTable->get([$this->request->data['ideaId']]);
+		try{
+			$ideasTable->delete($ideas);
+		}catch(Exception $e){
+			print($e);
+			exit();
+		}
+		$this->redirect(['action'=>'studentmypage']);
+	}
+
+
+	//評価更新機能
+	public function estupdata(){
+		$id = 123;
+		$teachersTable = TableRegistry::get('Teachers');
+		$matchingsTable = TableRegistry::get('Matchings');
+		$matchings = $matchingsTable->get([$this->request->data['seminarId'],$this->request->data['studentId']]);
+		$teachers = $teachersTable->get($this->request->data['teacherId']);
+		$teachers->rate += $this->request->data['rate'];
+		$teachers->rateCnt += 1;
+		$matchings->estFlag +=1;
+		if($teachersTable->save($teachers)){
+			if($matchingsTable->save($matchings)){
+				$this->redirect(['action' => 'studentmypage']);
+			}
+			print("マッチングテーブルエラー");
+		}
+	}
+
+
+
+	//マッチング削除
+	public function Matchingdelete(){
+		$MatchingsTable = TableRegistry::get('Matchings');
+		$Matchings = $MatchingsTable->get([$this->request->data['seminarId'],$this->request->data['studentId']]);
+		try{
+			$MatchingsTable->delete($Matchings);
+		}catch(Exception $e){
+			print($e);
+			exit();
+		}
+		$this->redirect(['action'=>'studentmypage']);
+	}
+	public function topguestteacher(){
+		$this->set('entity', $this->Ideas->newEntity());
+		$data = $this->Ideas->find()->where(['ideaFlag'=>'1']);
+		$this->set('data',$data);
+	}
+	public function studentmypage(){
+		//プロフィール
+		$id = 123;
+		//受講者プロフィールに表示する内容
+		$profile = $this->Students->find()->where(['studentId'=>$id]);
+		foreach($profile as $data){
+			$this->set('profile',$data);
+		}
+
+		//発案
+		//post判定
+		if($this->request->is('post')){
+			//categoryidが０またはnull場合は全て取得
+			if(empty($this->request->data['ideassearch'])){
+				$ideas = $this->Ideas->find()->where(['studentId'=>$id])->where(['Ideas.ideaFlag'=>'1']);
+			}else{
+				//categoryIDで指定をした発案を取得
+				$categoryid = $this->request->data['ideassearch'];
+				$ideas = $this->Ideas->find()->where(['Ideas.studentId'=>$id,'Ideas.CategoryId'=>$categoryid,'Ideas.ideaFlag'=>'1']);
+			}
+		}else{
+			//studentIDに一致する発案を全て取得
+			$ideas = $this->Ideas->find()->where(['studentId'=>$id])->where(['Ideas.ideaFlag'=>'1']);
+		}
+		$this->set('ideas',$ideas);
+		
+		//セミナー
+		if($this->request->is('post')){
+			//categoryidが０またはnullの場合は全て取得
+			if(empty($this->request->data['seminarsearch'])){
+				//MatchingsテーブルにSeminarsテーブルを結合し参加中のセミナー全てを取得
+				$seminars = $this->Matchings->find()->contain(['Seminars'])->where(['Matchings.studentId'=>$id])->where(['Matchings.estFlag'=>'1']);
+			}else{
+				$categoryid = $this->request->data['seminarsearch'];
+				//MatchingsテーブルにSeminarsテーブルを結合しcategoryIdの一致するセミナー全てを取得
+				$seminars = $this->Matchings->find()->contain(['Seminars'])->where(['Matchings.studentId'=>$id])->where(['Seminars.categoryId'=>$categoryid])->where(['Matchings.estFlag'=>'2']);
+			}
+		}else{
+			//MatchingsテーブルにSeminarsテーブルを結合し参加中のセミナー全てを取得
+			$seminars = $this->Matchings->find()->contain(['Seminars'])->where(['Matchings.studentId'=>$id])->where(['Matchings.estFlag'=>'1']);
+		}
+		$this->set('seminars',$seminars);
+
+		//評価
+		$estteacher = 0;
+		if($this->request->is('post')){
+			if(!empty($this->request->data['estimation'])){
+				$estteacher = $this->request->data['estimation'];
+			}
+		}
+		switch ($estteacher){
+			case 0:
+				$teacherlist = $this->Matchings->find('all')->contain(['Seminars.Teachers'])->where(['Matchings.estFlag'=>'1'])->where(['Matchings.studentId'=>$id]);
+				break;
+			case 1;
+				$teacherlist = $this->Matchings->find('all')->contain(['Seminars.Teachers'])->where(['Matchings.estFlag'=>'2'])->where(['Matchings.studentId'=>$id]);
+				break;
+			default:
+
+		}
+		$this->set('ests',$teacherlist);
+	}
+
+
+	//受講者プロフィール編集
+	public function studentprofileeditor(){
+		$id = 123;
+		$studentsTable = TableRegistry::get('Students');
+		$students = $studentsTable->get($id);
+		$this->set('entity', $this->Students->newEntity());
+		if(!empty($this->request->data['editor'])){
+			if(empty($this->request->data['photograph'])){
+			}else{
+				$students->photograph = file_get_contents($this->request->data['photograph']['tmp_name']);
+			}
+			$students->mailAddress = $this->request->data['mail'];
+			$students->studentName = $this->request->data['studentName'];
+			$students->phoneNumber = $this->request->data['phone'];
+			$students->password = $this->request->data['pass'];
+			$students->creditInfo = $this->request->data['creditInfo'];
+			if($studentsTable->save($students)){
+				$this->redirect(['action' => 'studentmypage']);
+			}
+		}
+	}
+
+
+	//応募講師一覧
+	public function proposalteacherlist(){
+		$id = 123;
+		$getId = $_GET['id'];
+		$getStudentId = $_GET['student'];
+		$proposalteacher = $this->Seminars->find('all')->contain(['Teachers'])->where(['Seminars.ideaId'=>$getId])->where(['Seminars.seminarFlag'=>'1']);
+		$this->set('prsteacher',$proposalteacher);
+		$this->set('studentId',$getStudentId);
+	}
 }
-   
+
+
+
+	
