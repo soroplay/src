@@ -1,15 +1,14 @@
 <p><?=$this->Html->link('ログアウト',['action'=>'logout']);?></p>
 <p><?=$this->Html->link('マイページ',['action'=>'studentMyPage']);?></p>
-<div class="basemenu_wrapper">
-	<div class ="basemenu_left">
-		<input type="button" value="発案" onClick="location.href='create_seminar'">
-		<input type="button" value="講師セミナー決定" onClick="location.href='teacher_seminar_registry'">
-    </div>
-	<div class ="basemenu_right">
+
+
+	<input type="button" id="sug-link" value="発案" onClick="location.href='create_seminar'">
+	
+	<div id ="search">
 		<?=$this->Form->create($entity,['url'=>['action'=>'student_top']]) ?>
-		<?=$this->Form->text("search", ['size'=>'15', 'placeholder'=>'講師IDで検索'], ['default'=>'*']) ?>
+		<?=$this->Form->text("search", ['size'=>'15', 'placeholder'=>'講師IDで検索','id'=>'search-wid'], ['default'=>'*']) ?>
 		<?=$this->Form->select("category", $category, ['empty'=>'すべてのカテゴリー'], ['default'=>'*']) ?>
-		<?=$this->Form->button("検索") ?>
+		<?=$this->Form->button("検索",['id'=>"search-btn"]) ?>
 		<?=$this->Form->end() ?>
     </div>
 </div>
