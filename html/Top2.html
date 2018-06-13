@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>EMAZEMI STUDENT TOP</title>
+    <link rel="stylesheet" href="css/Top2.css">
+    <link rel="stylesheet" href="css/animsition.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/anime.js"></script>
+    <script type="text/javascript" src="js/animsition.js"></script>
+    <script type="text/javascript" src="js/Top2.js"></script>
+</head>
+
+<script>
+    $(document).ready(function(){
+    $('.animsition').animsition({
+    inClass: 'zoom-in',
+    outClass: 'zoom-out',
+    inDuration: 1500,
+    outDuration: 800,
+    linkElement: '.animsition',
+    // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+    loading: true,
+    loadingParentElement: 'body', //animsition wrapper element
+    loadingClass: 'animsition-loading',
+    loadingInner: '', // e.g '<img src="loading.svg" />'
+    timeout: false,
+    timeoutCountdown: 5000,
+    onLoadEvent: true,
+    browser: [ 'animation-duration', '-webkit-animation-duration'],
+    // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+    // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+    overlay : false,
+    overlayClass : 'animsition-overlay-slide',
+    overlayParentElement : 'body',
+    });
+});
+
+</script>
+
+
+<body>
+    <div class="animsition">
+    <div id="item-link">
+        <div id="logo"><img src="img/Untitled%20233.png"></div>
+        <div id="item-logo">
+            <a href="Top.html" target="_blank">トップへ</a>
+            <div id="home" class="hov"><a href="Top.html" class="animsition-link"><img src="img/Untitled 8.svg"></a></div>
+            <div id="genre" class="hov"><img src="img/Untitled 9.svg"></div>
+            <div id="login" class="hov"><img src="img/Untitled%2010.svg"></div>
+            <div id="new" class="hov"><img src="img/Untitled%2011.svg"></div>
+        </div>
+    </div>
+    
+        <div id="ema"><img src="img/ema.jpg" width="280px"></div>
+
+        <div id="teach-link">
+            <p id="teachP">教え人</p>
+        </div>
+        <div class="circle1" id="cir1"></div>
+        <div id="learn-link">
+            <p>願い人</p>
+        </div>
+        <div class="circle2"></div>
+    </div>
+</body>
