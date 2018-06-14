@@ -670,6 +670,87 @@ class SeminarController extends AppController{
 		$this->set('prsteacher',$proposalteacher);
 		$this->set('studentId',$getStudentId);
 	}
+	
+	public function topgueststudent(){
+		$this->seminars = TableRegistry::get('seminars');
+		$data=$this->seminars->find('all');
+		$this->set('data',$data);
+		$this->set('data',$this->paginate($data));
+	}
+	
+	public function teacherProfileEdit(){
+		$teachersTable = TableRegistry::get('teachers');
+		$this->set('entity', $teachersTable->newEntity());
+		if($this->request->is('post')){
+			if($this->request->data['password'] == $this->request->data['password_confirm']){
+				$teacher = $teachersTable->newEntity($this->request->data);
+				$teachersTable->save($teacher);
+				$this->redirect(['action' => 'teacherMyPage']);
+			}else{
+				$this->redirect(['action' => 'teacherProfileEdit']);
+			}
+		}
+	}
+	
+	public function teacherMyPage(){
+		$teacherId='test';
+		$teachersTable = TableRegistry::get('teachers');
+		$teacher=$teachersTable->find()->where(['teacherId'=>$teacherId])->first();
+		$this->set('teacher',$teacher);
+		//セミナー
+		$seminarsTable = TableRegistry::get('seminars');
+		$categorysTable = TableRegistry::get('categorys');
+		$ideasTable = TableRegistry::get('ideas');
+		$categoryId = $this->request->data['category'];
+		if($categoryId==null){
+			$seminarId=$seminarsTable->find('all')->toArray();
+			$this->set('seminarId',$seminarId);
+		}else{
+			$categoryId=$this->request->data['categoryId'];
+			$ideaId=$ideasTable->find()->select(['ideaId'])->where(['categoryId'=>$categoryId]);
+			$seminarId=$seminarsTable->find()->where(['ideaId'=>$ideaId])
+											->toArray();
+			$this->set('seminarId',$seminarId);
+		}
+		$this->redirect(['action' => 'teacherMyPage']);
+		//開催予定
+		$seminarsTable = TableRegistry::get('seminars');
+		$categorysTable = TableRegistry::get('categorys');
+		$ideasTable = TableRegistry::get('ideas');
+		$categoryId = $this->request->data['category'];
+		if($categoryId==null){
+			$seminarId=$seminarsTable->find()->where(['teacherid'=>$teacherId])->toArray();
+			$this->set('seminarId',$seminarId);
+		}else{
+			$categoryId=$this->request->data['categoryId'];
+			$ideaId=$ideasTable->find()->select(['ideaId'])->where(['categoryId'=>$categoryId]);
+			$seminarId=$seminarsTable->find()->where(['teacherId'=>$teacherId,'ideaId'=>$ideaId])
+											->toArray();
+			$this->set('seminarId',$seminarId);
+		}
+		$this->redirect(['action' => 'teacherMyPage']);
+	}
+	
+	public function createProposal(){
+		$seminarsTable = TableRegistry::get('seminars');
+		$this->set('entity', $seminarsTable->newEntity());
+		if($this->request->is('post')){
+			switch($this->request->data['proposal_confirm']) {
+				case 'confirm':
+				if ($this->request->data['seminarTitle'] != null){
+					$this->render('proposal_confirm');
+				}else{
+					$this->redirect(['action'=> 'createProposal']);
+				}
+				break;
+				case 'proposal':
+				$seminar = $seminarsTable->newEntity($this->request->data);
+				$seminarsTable->save($seminar);
+				$this->redirect(['action' => 'teacherTop']);
+				break;
+			}
+		}
+	}
 }
 
 
