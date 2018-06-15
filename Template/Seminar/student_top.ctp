@@ -1,4 +1,4 @@
-<div id="logout"><?=$this->Html->link('ログアウト',array('style'=>'text-decoration:none'),['action'=>'logout']);?></div>
+<div id="logout"><?=$this->Html->link('ログアウト', ['action'=>'logout'], array('style'=>'text-decoration:none'));?></div>
 <div id="mypage"><?=$this->Html->link('マイページ',['action'=>'studentMyPage']);?></div>
 
 

@@ -13,7 +13,7 @@
  */
 namespace App\View;
 use Cake\View\View;
-use BootstrapUI\View\UIView;
+//use BootstrapUI\View\UIView;
 
 
 /**
@@ -23,7 +23,7 @@ use BootstrapUI\View\UIView;
  *
  * @link https://book.cakephp.org/3.0/en/views.html#the-app-view
  */
-class AppView extends UIView
+class AppView extends View
 {
 
     /**

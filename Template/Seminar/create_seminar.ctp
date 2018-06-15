@@ -47,7 +47,7 @@
 					<?=$this->Form->button("確認する", [
 								'type' => 'submit',
 								'name' => 'confirm',
-								'value' => 'confirm'
+								'value' => 'registry'
 					]) ?>
 					
 			</td>

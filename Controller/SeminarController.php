@@ -44,6 +44,14 @@ class SeminarController extends AppController{
 			$this->set('entryFee', $entryFee);
 		}
 
+		$eventDate = array();
+		if($this->Ideas !== false){
+			foreach($this->Ideas->find()->all() as $tmp){
+				$eventDate += array($tmp->ideaId=>$tmp->entryFee);
+			}
+			$this->set('eventDate', $eventDate);
+		}
+
 		$today = strtotime(date('Y-m-d'));
 		$endSeminar = $this->Ideas->find('all', [
 			'conditions'=>['ideaFlag'=>2, 'eventDate <'=>$today],
@@ -119,7 +127,7 @@ class SeminarController extends AppController{
 					'conditions'=>array(['studentId'=>$this->request->data['id']],
 					['password'=>$this->request->data['password']])]
 				);
-				$session->write('login.studentid',$this->request->data['id']);
+				$session->write('login.loginid',$this->request->data['id']);
 
 				$seminar = $this->Seminars->find('all', [
 					'conditions'=>['seminarFlag'=>4],
