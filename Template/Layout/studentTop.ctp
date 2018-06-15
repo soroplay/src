@@ -4,6 +4,8 @@
 <head>
 <?php
 echo $this->Html->css('studentLogined');
+echo $this->Html->script('jquery-3.3.1.min.js');
+echo $this->Html->script('studentLogined.js');
 echo $this->fetch('meta');
 echo $this->fetch('css');
 ?>
