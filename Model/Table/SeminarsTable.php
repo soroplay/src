@@ -19,51 +19,15 @@ use Cake\Validation\Validator;
  */
 class SeminarsTable extends Table
 {
-/*
-    /**
-     * Initialize method
-     *
-     * @param array $config The configuration for the Table.
-     * @return void
-     */
-   /* 
-    public function initialize(array $config)
-    {
-        parent::initialize($config);
-
-        $this->setTable('seminar');
-        $this->setDisplayField('seminarId');
-        $this->setPrimaryKey('seminarId');
+    public function initialize(array $config){
+        $this->belongsTo('Teachers',[
+            'dependent'=>'true',
+            'foreignKey' => 'TeacherId',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Ideas',[
+            'dependent'=>'true',
+            'foreignKey'=>'ideaId'
+        ]);
     }
-
-    /**
-     * Default validation rules.
-     *
-     * @param \Cake\Validation\Validator $validator Validator instance.
-     * @return \Cake\Validation\Validator
-     */
-     /*
-    public function validationDefault(Validator $validator)
-    {
-        $validator
-            ->integer('seminarId')
-            ->allowEmpty('seminarId', 'create');
-
-        $validator
-            ->date('ideaId')
-            ->requirePresence('costdate', 'create')
-            ->notEmpty('costdate');
-
-        $validator
-            ->scalar('usedetail')
-            ->requirePresence('usedetail', 'create')
-            ->notEmpty('usedetail');
-
-        $validator
-            ->integer('value')
-            ->requirePresence('value', 'create')
-            ->notEmpty('value');
-
-        return $validator;
-    }*/
 }
