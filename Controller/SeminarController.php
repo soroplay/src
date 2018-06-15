@@ -346,7 +346,6 @@ class SeminarController extends AppController{
 					$this->render('seminar_student_registry');
 					break;
 				case 'registry':
-					$row = $this->Matchings->newEntity();
 					$row = array(
 						'seminarId'=>$this->request->data['seminarId'],
 						'studentId'=>h($loginid)

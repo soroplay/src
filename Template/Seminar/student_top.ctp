@@ -1,5 +1,5 @@
 <div id="logout"><?=$this->Html->link('ログアウト', ['action'=>'logout'], array('style'=>'text-decoration:none'));?></div>
-<div id="mypage"><?=$this->Html->link('マイページ',['action'=>'studentMyPage']);?></div>
+<div id="mypage"><?=$this->Html->link('マイページ',['action'=>'studentmypage']);?></div>
 
 
 	<input type="button" value="発案" id="sug-link" onClick="location.href='create_seminar'">
@@ -19,10 +19,11 @@
 	<?php if(($obj->capacity > $cnt[$obj->seminarId])&&(strtotime($obj->dueDate) > strtotime(date('Y/m/d')))): ?>
 	<tr>
 		<td><?=$obj->seminarTitle ?></td>
+		<td><?=$eventDate[$obj->ideaId] ?></td>
 		<td><?=$this->Html->link($teacher[$obj->teacherId], ['action'=>'check_teacher_profile']); ?></td>
 		<td><?=(strtotime($obj->dueDate) - strtotime(date('Y/m/d'))) / (60 * 60 * 24) ?></td>
 		<td><?=$obj->capacity - $cnt[$obj->seminarId] ?></td>
-		<td><?=$entryFee[$obj->ideaId] ?></br>
+		<td><?=$entryFee[$obj->ideaId] ?></td>
 		<td><?=$obj->outline ?></td>
 		<td><?=$obj->venue ?></td>
 		<td><?=$obj->remarks ?></td>
