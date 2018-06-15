@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 <div id="logout"><?=$this->Html->link('ログアウト', ['action'=>'logout'], array('style'=>'text-decoration:none'));?></div>
 <div id="mypage"><?=$this->Html->link('マイページ',['action'=>'studentmypage']);?></div>
-=======
-<div id="logout"><?=$this->Html->link('ログアウト',array('style'=>'text-decoration:none'),['action'=>'logout']);?></div>
-<div id="mypage"><?=$this->Html->link('マイページ',['action'=>'studentMyPage']);?></div>
->>>>>>> 28a199bf674e4e8940e4bd0d579cb066644e0f75
-
+t
 
 	<input type="button" value="発案" id="sug-link" onClick="location.href='create_seminar'">
 	
@@ -25,24 +20,18 @@
 	</tr>
 <?php  foreach($data  as  $obj):  ?>
 	<?php if(($obj->capacity > $cnt[$obj->seminarId])&&(strtotime($obj->dueDate) > strtotime(date('Y/m/d')))): ?>
-<<<<<<< HEAD
-	<tr>
-		<td><?=$obj->seminarTitle ?></td>
-		<td><?=$eventDate[$obj->ideaId] ?></td>
-		<td><?=$this->Html->link($teacher[$obj->teacherId], ['action'=>'check_teacher_profile']); ?></td>
-		<td><?=(strtotime($obj->dueDate) - strtotime(date('Y/m/d'))) / (60 * 60 * 24) ?></td>
-		<td><?=$obj->capacity - $cnt[$obj->seminarId] ?></td>
-		<td><?=$entryFee[$obj->ideaId] ?></td>
-		<td><?=$obj->outline ?></td>
-		<td><?=$obj->venue ?></td>
-		<td><?=$obj->remarks ?></td>
-=======
+	
+		
 	<tr id="list-tr">
 		<td id="title"><?=$obj->seminarTitle ?></td>
 		<td id="teach-name"><?=$this->Html->link($teacher[$obj->teacherId], ['action'=>'check_teacher_profile']); ?></td>
 		<td id="day"><?=(strtotime($obj->dueDate) - strtotime(date('Y/m/d'))) / (60 * 60 * 24) ?></td>
 		<td id="capa"><?=$obj->capacity - $cnt[$obj->seminarId] ?></td>
->>>>>>> 28a199bf674e4e8940e4bd0d579cb066644e0f75
+			<td><?=$obj->capacity - $cnt[$obj->seminarId] ?></td>
+			<td><?=$entryFee[$obj->ideaId] ?></td>
+			<td><?=$obj->outline ?></td>
+			<td><?=$obj->venue ?></td>
+			<td><?=$obj->remarks ?></td>
 		
 		<?php if(in_array($obj->seminarId, $joinedId)): ?>
 					<?=$this->Form->create($entity,['url'=>['action'=>'seminar_student_cancel']]) ?>
