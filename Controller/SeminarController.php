@@ -290,7 +290,7 @@ class SeminarController extends AppController{
 	public function logout(){
 		$session = $this->request->session();
 		$session->destroy();
-		$this->redirect(['action'=> 'guestTop']);
+		$this->redirect(['action'=> 'topgueststudent']);
 	}
 
 
