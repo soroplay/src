@@ -36,12 +36,14 @@
                 <li>概要</li>
                 <li>備考</li>
                 <li>参加費</li>
+				<li>開催場所</li>
             </ul>
             <ul id="list-right">
-                <li>内容</li>
-                <li>内容</li>
-                <li>内容</li>
-                <li>内容</li>
+                <li><?=$eventDate[$obj->ideaId]?></li>
+                <li><?=$obj->outline ?></li>
+                <li><?=$obj->remarks ?></li>
+                <li><?=$entryFee[$obj->ideaId]?></li>
+				<li><?=$obj->venue ?></li>
             </ul>
             </div>
         </div>
