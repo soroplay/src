@@ -22,6 +22,11 @@
 		<td><?=$this->Html->link($teacher[$obj->teacherId], ['action'=>'check_teacher_profile']); ?></td>
 		<td><?=(strtotime($obj->dueDate) - strtotime(date('Y/m/d'))) / (60 * 60 * 24) ?></td>
 		<td><?=$obj->capacity - $cnt[$obj->seminarId] ?></td>
+		<td><?=$entryFee[$obj->ideaId] ?></br>
+		<td><?=$obj->outline ?></td>
+		<td><?=$obj->venue ?></td>
+		<td><?=$obj->remarks ?></td>
+		
 
 		<?php if(in_array($obj->seminarId, $joinedId)): ?>
 					<?=$this->Form->create($entity,['url'=>['action'=>'seminar_student_cancel']]) ?>
