@@ -69,6 +69,7 @@ class SeminarController extends AppController{
 	  
 	
 	public function login(){
+		$this->viewBuilder()->layout('login');
 		$session = $this->request->session();
 		$this->Students = TableRegistry::get('students');
 		$this->Teachers= TableRegistry::get('teachers');
@@ -148,6 +149,7 @@ class SeminarController extends AppController{
 	}
 
     public function teacherTop(){
+			$this->viewBuilder()->layout('teacherTop');
 		 	$session = $this->request->session();
 		    $loginid = $session->read('login.loginid');
 				$this->autoRender = true; 
@@ -191,6 +193,7 @@ class SeminarController extends AppController{
 	}
 
 	public function studentTop(){
+		$this->viewBuilder()->layout('studentTop');
 		$session = $this->request->session();
 		$loginid = $session->read('login.loginid');
 		$this->name = 'Seminar';
@@ -263,6 +266,7 @@ class SeminarController extends AppController{
     }
 
 	public function createSeminar(){
+		$this->viewBuilder()->layout('suggest');
 		$session = $this->request->session();
 		$loginid = $session->read('login.loginid');
 		$this->set('entity', $this->Ideas->newEntity());
