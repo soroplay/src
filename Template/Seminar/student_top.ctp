@@ -1,14 +1,15 @@
-<p><?=$this->Html->link('ログアウト',['action'=>'logout']);?></p>
-<p><?=$this->Html->link('マイページ',['action'=>'studentMyPage']);?></p>
+<div id="logout"><?=$this->Html->link('ログアウト',array('style'=>'text-decoration:none'),['action'=>'logout']);?></div>
+<div id="mypage"><?=$this->Html->link('マイページ',['action'=>'studentMyPage']);?></div>
 
 
-	<input type="button" id="sug-link" value="発案" onClick="location.href='create_seminar'">
+	<input type="button" value="発案" id="sug-link" onClick="location.href='create_seminar'">
 	
+
 	<div id ="search">
 		<?=$this->Form->create($entity,['url'=>['action'=>'student_top']]) ?>
 		<?=$this->Form->text("search", ['size'=>'15', 'placeholder'=>'講師IDで検索','id'=>'search-wid'], ['default'=>'*']) ?>
 		<?=$this->Form->select("category", $category, ['empty'=>'すべてのカテゴリー'], ['default'=>'*']) ?>
-		<?=$this->Form->button("検索",['id'=>"search-btn"]) ?>
+		<?=$this->Form->button("検索",['id'=>'search-btn']) ?>
 		<?=$this->Form->end() ?>
     </div>
 </div>
@@ -53,10 +54,10 @@
 
 <div class="paginator">
 	<ul class="pagination">
-		<?= $this->Paginator->first('<<') ?>
-		<?= $this->Paginator->prev('<') ?>
+		<div id="first"><?= $this->Paginator->first('<<') ?></div>
+		<div id="first-s"><?= $this->Paginator->prev('<') ?></div>
 		<?= $this->Paginator->numbers() ?>
-		<?= $this->Paginator->next('>') ?>
-		<?= $this->Paginator->last('>>') ?>
+		<div id="last"><?= $this->Paginator->next('>') ?></div>
+		<div id="last-s"><?= $this->Paginator->last('>>') ?></div>
 	</ul>
 </div>
