@@ -15,7 +15,7 @@ body{
 #logout{
     position: absolute;
     background-color: white;
-    top:7px;
+    top:5px;
     right: 20px;
     padding: 5px 20px;
     color: white;
@@ -26,14 +26,14 @@ body{
 #mypage{
     position: absolute;
     background-color: white;
-    top:-9px;
+    top:5px;
     right: 150px;
     padding: 5px 20px;
     color: white;
     text-decoration: none;
     border: solid 2px black;
 }
-
+/*発案ボタン*/
 #sug-link{
     transition: 0.5s;
     font-size: 25px;
@@ -42,6 +42,7 @@ body{
     margin-left: 530px;
     padding:15px 140px;
     border: solid 2px black;
+    margin-bottom: 50px;
 }
 
 #sug-link:hover{
@@ -50,6 +51,7 @@ body{
     background-color: rgb(187, 184, 184);
 }
 
+/*ジャンルリスト*/
 #gen-list select{
     position: relative;
     left: 1000px;
@@ -66,6 +68,7 @@ body{
     font-size: 120px;
 }
 
+/*検索ボタン*/
 #search{
     position: absolute;
     top:240px;
@@ -109,6 +112,74 @@ ul{
     display: inline;
 }
 
+/*リスト項目の設定*/
+#koumoku{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    border-bottom: solid 2px gray;
+}
+
+th{
+    padding: 100px;
+    padding-bottom: 0px;
+}
+
+#seminar-title{
+    padding-right: 280px;
+}
+
+
+/*listの設定*/
+
+td{ 
+    display:inline-block;
+    margin-top: 20px;
+    font-size:20px;
+}
+
+#title{
+    margin-left: 40px;
+    padding-bottom:40px; 
+    width: 1200px;
+    border-bottom: solid 2px gray;
+}
+
+#teach-name{
+    position: absolute;
+    left: 610px;
+    margin-top: 30px;
+}
+
+#day{
+    position: absolute;
+    left: 890px;
+    margin-top:30px;
+}
+
+#capa{
+    position: absolute;
+    left: 1160px;
+    margin-top:28px;
+}
+
+/*取消または参加ボタンの設定*/
+.sub-btn{
+    background-color: black;
+    padding:10px 25px;
+    color: white;
+    font-size: 15px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+
+.sub-btn:hover{
+    background-color: rgb(121, 117, 117);
+    
+}
+
+/*前後の件数のやつ*/
 #first{
     display: inline-block;
     margin-left: 10px;
