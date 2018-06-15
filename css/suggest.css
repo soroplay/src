@@ -1,84 +1,77 @@
-body{
-    background-image: url('/img/RegistBack.png');
-}
-h1{
-    font-family: "ＭＳ 明朝",serif;
-    color: white;
-    text-align: center;
-    font-size:80px;
-    margin: 0;
-}
-.main-contents{
-    background-color: rgba(169, 169, 169, 0.78);
-    width: 530px;
-    height: 380px;
-    margin: auto;
-    margin-top: 20px;
-}
-
-.main-contents label{
-    margin-left: 60px;
-}
-
-.main-contents ul{
-    padding-top:1px; 
-}
-
-.main-contents li{
-    margin-top: 30px;
-    list-style: none;
-    width: 520px;
-}
-
-.main-contents input{
-    float: right;
-    margin-right: 120px;
-    font-size: 20px;
-}
-.genre {
-    margin-left: 60px;
-    margin-top: 30px;
-}
-
-.genre select{
-    float: right;
-    position: relative;
-    right: 130px;
-    bottom: 40px;
-    width: 160px;
-    height: 30px;
-}
-
-.btn {
+.input{
     display: block;
-    position: relative;
-    left: 80px;
-    top: 30px;
-    width: 100px;
-    font-size: 15px;
-    height: 40px;
-    background-color: #000;
-    padding: 0.3em 1em;
-    text-decoration: none;
-    color: white;
-    border-radius: 3px;
-    transition: .4s;
+    margin: 50px;
 }
 
-a{
+
+.main-contents {
+    background-color: rgba(255, 255, 255, 0.72);
+    border-radius :8px;/*角の丸み*/
+    box-shadow :0px 0px 5px silver;/*5px=影の広がり具合*/
+    border: solid 2px gray;/*線の種類 太さ 色*/
+    width:590px;
+    height: 570px;
+    margin: auto;
+    margin-left: 430px;
+    margin-top: 70px;
+}
+
+body{
+    background-image: url("../img/RegistBack.png");
+     background-repeat: cover;
+    background-position: center center;
+}
+.contents{
+        margin-left:90px   
+}
+.sub-input{
+    display: inline;
+    position: absolute;
+    left: 740px;
+}
+
+.day{
+    display: inline;
+    position: absolute;
+    top:230px;
+}
+
+.pay{
+    position: absolute;
+    top:300px
+}
+
+.textarea{
+    position: absolute;
+    top:380px;
+}
+
+.genre{
+    position: absolute;
+    top:480px;
+}
+
+.genre-catg{
+    margin-top:80px;
+}
+
+.btn{
+    margin-left:10px;
+    margin-top: 90px;
+}
+
+#btn-id{
+    background-color: black;
+    padding: 10px 30px;
+    color:white;
+    font-size:15px;
+    margin-left: -50px
+}
+
+#studentA{
     display: inline-block;
-    color: white;
-    position: relative;
-    top:100px;
+    position: absolute;
+    top:600px;
+    left:300px;
+    color:white;
 }
-
-.btn:hover{
-background-color:  rgba(155, 147, 147, 0.7);
-    color: black;
-    font-weight: bold;
-}
-a:hover{
-    color: rgba(100, 96, 96, 0.7);
-}
-
-
