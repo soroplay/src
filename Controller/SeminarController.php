@@ -68,6 +68,11 @@ class SeminarController extends AppController{
 	]; 
 	  
 	
+	//ゲストトップ
+	public function guesttop(){
+		$this->viewBuilder()->layout('guestTop');
+	}
+
 	public function login(){
 		$this->viewBuilder()->layout('login');
 		$session = $this->request->session();

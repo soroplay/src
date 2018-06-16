@@ -38,4 +38,17 @@ $(function () {
         $('#hovlogo2').fadeOut();　　
         $('#student-sent').css('color', 'black');
     });
+
+    $('#logo-new').click(function(){
+        $('#link-wrapper').fadeIn();
+        $('#link-modal').fadeIn();
+    });
+    $('#link-wrapper').click(function(){
+        $('#link-wrapper').fadeOut();
+        $('#link-modal').fadeOut();
+    });
+    $('#link-modal p').click(function(){
+        $('#link-wrapper').fadeOut();
+        $('#link-modal').fadeOut();
+    });
 });
