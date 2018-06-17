@@ -33,17 +33,6 @@ body{
     text-decoration: none;
     border: solid 2px black;
 }
-/*発案ボタン*/
-#sug-link{
-    transition: 0.5s;
-    font-size: 25px;
-    color: black;
-    margin-top: 60px;
-    margin-left: 530px;
-    padding:15px 140px;
-    border: solid 2px black;
-    margin-bottom: 50px;
-}
 
 #sug-link:hover{
     transition: 0.5s;
@@ -145,7 +134,14 @@ td{
     width: 1200px;
     border-bottom: solid 2px gray;
 }
-
+#detail{
+    position: absolute;
+    margin-top: 60px;
+    left: 330px;
+    font-size: 14px;
+    color: rgb(0, 162, 255);
+    border-bottom:solid 2px  rgb(0, 162, 255);
+}
 #eventDate{
     position: absolute;
     left: 610px;
@@ -165,6 +161,7 @@ td{
 }
 
 
+
 /*取消または参加ボタンの設定*/
 .sub-btn{
     background-color: black;
@@ -179,6 +176,80 @@ td{
     background-color: rgb(121, 117, 117);
     
 }
+.sub-btn{
+    background-color: black;
+    padding:10px 25px;
+    color: white;
+    font-size: 15px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+}
+
+.sub-btn:hover{
+    background-color: rgb(121, 117, 117);
+    
+}
+
+
+/*モーダルの設定*/
+#modal-wrapper{
+    display: none;
+    position: absolute;
+    top:0px;
+    margin: 0px;
+    width: 1420px;
+    height: 820px;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+#modal{
+    display: none;
+    position: relative;
+    left: 280px;
+    top:60px;
+    width: 900px;
+    height: 500px;
+    background-color: #ffffff;
+    z-index: 2;
+    border-radius: 16px 16px 16px 16px;
+    box-shadow: 3px 3px 3px 3px gray;
+}
+
+ul{
+    margin-top: 60px;
+}
+
+li{
+   list-style: none;
+    margin: 60px;
+}
+
+#list-left{
+    float: left;
+    position: absolute;
+    top:100px;
+}
+
+#list-left li{
+    font-size: 23px;
+    border-bottom: solid 2px gray;
+    width: 700px;
+}
+
+
+#list-right{
+    position: absolute;
+    top:100px;
+    float: none;
+    margin-left: 460px;
+}
+
+#list-right li{
+    font-size: 30px;
+}
+
+
 
 /*前後の件数のやつ*/
 #first{

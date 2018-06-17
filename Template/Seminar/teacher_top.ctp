@@ -17,11 +17,11 @@
 
 		<?php if(in_array($obj->ideaId, $joinedId)): ?>
 					<?=$this->Form->create($entity,['url'=>['action'=>'seminar_student_cancel']]) ?>
-					<td><?=$this->Form->submit("取消", ['name'=>'confirm', 'value'=>'cancel']) ?></td>
+					<td><?=$this->Form->submit("取消", ['name'=>'confirm', 'value'=>'cancel','class'=>'sub-btn']) ?></td>
 					<?=$this->Form->end() ?>
 		<?php else: ?>
 					<?=$this->Form->create($entity,['url'=>['action'=>'seminar_student_registry']]) ?>
-					<td><?=$this->Form->submit("参加", ['name'=>'confirm', 'value'=>'confirm']) ?></td>
+					<td><?=$this->Form->submit("参加", ['name'=>'confirm', 'value'=>'confirm','class'=>'sub-btn']) ?></td>
 					<?=$this->Form->end() ?>
 		<?php endif;?>
 		
@@ -30,20 +30,33 @@
 
 
 <?php  foreach($allData as $obj):  ?>
-<tr id="list-tr">
-<td id="title"><?=$obj->title ?></td>
-<td id="eventDate"><?=$obj->eventDate->i18nFormat("yyyy年MM月dd日")?></td>
-<td id="entryFee"><?=$obj->entryFee?></td>
-<td id="category"><?=$category[$obj->categoryId]?> </td>
-<td id="requirementDetail"><?=$obj->requirementDetail?></td>
+	<tr id="list-tr">
+		<td id="title"><?=$obj->title ?></td>
+		<td id="detail">詳細を見る</td>
+		<td id="eventDate"><?=$obj->eventDate->i18nFormat("yyyy年MM月dd日")?></td>
+		<td id="entryFee"><?=$obj->entryFee?></td>
+		<td id="category"><?=$category[$obj->categoryId]?> </td>
+		
+			<div id="modal-wrapper">
+					</div>
+					<div id="modal">
+						<div id="modal-content">
+							<ul id="list-left">
+								<li>概要</li>
+							</ul>
+							<ul id="list-right">
+								<li><?=$obj->requirementDetail?></li>
+							</ul>
+					</div>
+			</div>
 
 		<?php if(in_array($obj->ideaId, $joinedId)): ?>
 					<?=$this->Form->create($entity,['url'=>['action'=>'seminar_student_cancel']]) ?>
-					<td><?=$this->Form->submit("取消", ['name'=>'confirm', 'value'=>'cancel']) ?></td>
+					<td><?=$this->Form->submit("取消", ['name'=>'confirm', 'value'=>'cancel','class'=>'sub-btn']) ?></td>
 					<?=$this->Form->end() ?>
 		<?php else: ?>
 					<?=$this->Form->create($entity,['url'=>['action'=>'seminar_student_registry']]) ?>
-					<td><?=$this->Form->submit("参加", ['name'=>'confirm', 'value'=>'confirm']) ?></td>
+					<td><?=$this->Form->submit("参加", ['name'=>'confirm', 'value'=>'confirm','class'=>'sub-btn']) ?></td>
 					<?=$this->Form->end() ?>
 		<?php endif;?>
 		
@@ -52,12 +65,12 @@
 <?php  endforeach;  ?>
 </table>
    
-   <div class="paginator"> 
-	<ul class="pagination"> 
-	 <?= $this->Paginator->first('<<') ?> 
-	 <?= $this->Paginator->prev('<') ?> 
-	 <?= $this->Paginator->numbers() ?> 
-	 <?= $this->Paginator->next('>') ?> 
-	 <?= $this->Paginator->last('>>') ?> 
-	</ul> 
-   </div>
+<div class="paginator">
+<ul class="pagination">
+	<div id="first"><?= $this->Paginator->first('<<') ?></div>
+	<div id="first-s"><?= $this->Paginator->prev('<') ?></div>
+	<?= $this->Paginator->numbers() ?>
+	<div id="last"><?= $this->Paginator->next('>') ?></div>
+	<div id="last-s"><?= $this->Paginator->last('>>') ?></div>
+</ul>
+</div>
