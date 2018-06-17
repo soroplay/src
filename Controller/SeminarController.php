@@ -121,7 +121,7 @@ class SeminarController extends AppController{
 					
 						   if((strtotime($obj->dueDate) <= strtotime(date('Y/m/d')))||($obj->capacity <= $studentid->count())){
 							$session->write('loginid',$this->request->data['id']);
-								$this->redirect(['action'=> 'teacherseminar_Registry']);
+								$this->redirect(['action'=> 'teacher_seminar_registry']);
 						   }
 					}
 					$session->write('loginid',$this->request->data['id']);
