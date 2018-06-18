@@ -1,5 +1,4 @@
 <body>
-
     <img src="../img/whiteKrinuki.svg" id="kirinuki">
     <header>
         <div id="header-logo">
@@ -25,4 +24,14 @@
         <img src="../img/hovlogo.svg" id="hovlogo1">
         <img src="../img/hovlogo.svg" id="hovlogo2">
     </div>
+
+    <footer>
+        <?php foreach($guestTeacher as $teacher): ?>
+            <p><?=$teacher->title?></p>
+        <?php endforeach; ?>
+
+        <?php foreach ($guestStudent as $student): ?>
+            <p><?=$student->seminarTitle ?></p>
+        <?php endforeach; ?>
+    </footer>
 </body>
