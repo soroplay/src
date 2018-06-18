@@ -69,7 +69,7 @@ class SeminarController extends AppController{
 	  
 	
 	//ゲストトップ
-	public function guesttop(){
+	public function guestTop(){
 		$this->viewBuilder()->layout('guestTop');
 	}
 
@@ -592,7 +592,8 @@ class SeminarController extends AppController{
 	}
 	public function studentmypage(){
 		//プロフィール
-		$id = 123;
+		$session = $this->request->session();
+		$id = $session->read('login.loginid');
 		//受講者プロフィールに表示する内容
 		$profile = $this->Students->find()->where(['studentId'=>$id]);
 		foreach($profile as $data){
