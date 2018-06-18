@@ -3,9 +3,7 @@
 
 <head>
 <?php
-echo $this->Html->css('TeacherTop');
-echo $this->Html->script('jquery-3.3.1.min.js');
-echo $this->Html->script('studentLogined.js');
+echo $this->Html->css('suggest');
 echo $this->fetch('meta');
 echo $this->fetch('css');
 ?>
@@ -21,9 +19,7 @@ echo $this->fetch('css');
 
 <body>
 	 <div id="container">
-		<div id="header">
-        <div id="logo"><?=$this->Html->image("/img/mypagelogo.png",['alt'=>'ロゴ'])?>
-		</div></div>
+		</div>
 		<div id="content">	
 			<?=$this->fetch('content') ?>
 		</div>
