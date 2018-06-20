@@ -1,0 +1,18 @@
+$(function(){
+    $('#held-btn').click(function(){
+         $('#modal-list').fadeIn();
+    });
+    $('.cansel-btn').click(function(){
+        $('#modal-list').fadeOut();
+        $('#delete-modal').fadeOut();
+    });
+    $('#close').click(function(){
+        $('#modal-list').fadeOut();
+    });
+    $('#delete-btn').click(function(){
+        $('#delete-modal').fadeIn();
+    });
+    $('.colsebtn').click(function(){
+        $('#delete-modal').fadeOut();
+    });
+});
