@@ -203,8 +203,8 @@ class SeminarController extends AppController{
 				} 
 
 				$this->set('joinedId', $id);
-				$this->set('data', $this->paginate($data));
-				$this->set('allData', $this->paginate($allData));
+				$this->set('data', $data);
+				$this->set('allData', $allData);
 				//$this->set('data', $data);
 	}
 
@@ -278,7 +278,7 @@ class SeminarController extends AppController{
 			$this->set('cnt', $num);
 		}
 		$this->set('joinedId', $id);
-        $this->set('data', $this->paginate($data));
+        $this->set('data', $data);
     }
 
 	public function createSeminar(){
@@ -310,7 +310,7 @@ class SeminarController extends AppController{
 	public function logout(){
 		$session = $this->request->session();
 		$session->destroy();
-		$this->redirect(['action'=> 'topgueststudent']);
+		$this->redirect(['action'=> 'guest_top']);
 	}
 
 

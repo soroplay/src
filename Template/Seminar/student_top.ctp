@@ -79,13 +79,3 @@
 </table>
 
 
-
-<div class="paginator">
-	<ul class="pagination">
-		<div id="first"><?= $this->Paginator->first('<<') ?></div>
-		<div id="first-s"><?= $this->Paginator->prev('<') ?></div>
-		<?= $this->Paginator->numbers() ?>
-		<div id="last"><?= $this->Paginator->next('>') ?></div>
-		<div id="last-s"><?= $this->Paginator->last('>>') ?></div>
-	</ul>
-</div>
