@@ -140,7 +140,8 @@ li{
     position: absolute;
     top:180px;
     font-size: 20px;
-    background-color: greenyellow;
+    background-color: black;
+    color:white;
     padding-top:15px;
     padding-bottom: 15px;
     padding-left: 60px;
@@ -153,7 +154,8 @@ li{
     font-size: 20px;
     top:180px;
     left:420px;
-    background-color: rgb(57, 108, 247);
+    background-color: black;
+    color:white;
     padding-top:15px;
     padding-bottom: 15px;
     padding-left: 60px;
