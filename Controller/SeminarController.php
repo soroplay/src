@@ -69,8 +69,19 @@ class SeminarController extends AppController{
 	  
 	
 	//ゲストトップ
-	public function guesttop(){
+	public function guestTop(){
 		$this->viewBuilder()->layout('guestTop');
+		//guestteacher
+		$teacher = $this->Ideas->find()->where(['ideaFlag'=>'1']);
+		$this->set('guestTeacher',$teacher);
+
+
+		//student
+		$student = $this->Seminars->find()->where(['seminarFlag'=>'2']);
+		$this->set('guestStudent',$student);
+
+
+
 	}
 
 	public function login(){
@@ -192,8 +203,8 @@ class SeminarController extends AppController{
 				} 
 
 				$this->set('joinedId', $id);
-				$this->set('data', $this->paginate($data));
-				$this->set('allData', $this->paginate($allData));
+				$this->set('data', $data);
+				$this->set('allData', $allData);
 				//$this->set('data', $data);
 	}
 
@@ -267,7 +278,7 @@ class SeminarController extends AppController{
 			$this->set('cnt', $num);
 		}
 		$this->set('joinedId', $id);
-        $this->set('data', $this->paginate($data));
+        $this->set('data', $data);
     }
 
 	public function createSeminar(){
@@ -299,7 +310,7 @@ class SeminarController extends AppController{
 	public function logout(){
 		$session = $this->request->session();
 		$session->destroy();
-		$this->redirect(['action'=> 'topgueststudent']);
+		$this->redirect(['action'=> 'guest_top']);
 	}
 
 
@@ -424,16 +435,20 @@ class SeminarController extends AppController{
 		$this->set('seminarList', $seminarList);
 	}
 
-	public function teacherSeminarCancel($id){
+	public function teacherSeminarCancel(){
 		$seminar = $this->Seminars->find('all', [
-			'conditions'=>['seminarId'=>$id]
+			'conditions'=>['seminarId'=>$this->request->data['seminarId']]
 		]);
 
 		foreach($seminar as $obj){
 			//$this->sendNotification($student, $obj->seminarTitle);
-			$this->sendNotification($id, $obj->seminarTitle);
+			$this->sendNotification($this->request->data['seminarId'], $obj->seminarTitle);
 		}
-		$this->Matchings->deleteAll(['seminarId'=>$id]);
+		$this->Matchings->deleteAll(['seminarId'=>$this->request->data['seminarId']]);
+		//$seminarTable = TableRegistry::get('Seminars');
+		$seminar = $this->Seminars->get([$this->request->data['seminarId']]);
+		$seminar->seminarFlag = 0;
+		$this->Seminars->save($seminar);
 
 		$this->redirect(['action'=>'student_top']);
 
@@ -592,7 +607,8 @@ class SeminarController extends AppController{
 	}
 	public function studentmypage(){
 		//プロフィール
-		$id = 123;
+		$session = $this->request->session();
+		$id = $session->read('login.loginid');
 		//受講者プロフィールに表示する内容
 		$profile = $this->Students->find()->where(['studentId'=>$id]);
 		foreach($profile as $data){
@@ -687,13 +703,13 @@ class SeminarController extends AppController{
 		$this->set('studentId',$getStudentId);
 	}
 	
-	public function topgueststudent(){
+/*	public function topgueststudent(){
 		$this->seminars = TableRegistry::get('seminars');
 		$data=$this->seminars->find('all');
 		$this->set('data',$data);
 		$this->set('data',$this->paginate($data));
 	}
-	
+*/	
 	public function teacherProfileEdit(){
 		$teachersTable = TableRegistry::get('teachers');
 		$this->set('entity', $teachersTable->newEntity());
@@ -708,8 +724,10 @@ class SeminarController extends AppController{
 		}
 	}
 	
-	public function teacherMyPage(){
-		$teacherId='test';
+	public function teachermypage(){
+		$session = $this->request->session();
+		$teacherId= $session->read('login.loginid');
+		print($teacherId);
 		$teachersTable = TableRegistry::get('teachers');
 		$teacher=$teachersTable->find()->where(['teacherId'=>$teacherId])->first();
 		$this->set('teacher',$teacher);
@@ -717,8 +735,8 @@ class SeminarController extends AppController{
 		$seminarsTable = TableRegistry::get('seminars');
 		$categorysTable = TableRegistry::get('categorys');
 		$ideasTable = TableRegistry::get('ideas');
-		$categoryId = $this->request->data['category'];
-		if($categoryId==null){
+		//$categoryId = $this->request->data['category'];
+		if(empty($categoryId)){
 			$seminarId=$seminarsTable->find('all')->toArray();
 			$this->set('seminarId',$seminarId);
 		}else{
@@ -728,13 +746,13 @@ class SeminarController extends AppController{
 											->toArray();
 			$this->set('seminarId',$seminarId);
 		}
-		$this->redirect(['action' => 'teacherMyPage']);
+		//$this->redirect(['action' => 'teacherMyPage']);
 		//開催予定
 		$seminarsTable = TableRegistry::get('seminars');
 		$categorysTable = TableRegistry::get('categorys');
 		$ideasTable = TableRegistry::get('ideas');
-		$categoryId = $this->request->data['category'];
-		if($categoryId==null){
+		//$categoryId = $this->request->data['category'];
+		if(empty($categoryId)){
 			$seminarId=$seminarsTable->find()->where(['teacherid'=>$teacherId])->toArray();
 			$this->set('seminarId',$seminarId);
 		}else{
@@ -744,7 +762,7 @@ class SeminarController extends AppController{
 											->toArray();
 			$this->set('seminarId',$seminarId);
 		}
-		$this->redirect(['action' => 'teacherMyPage']);
+		//$this->redirect(['action' => 'teachermypage']);
 	}
 	
 	public function createProposal(){
