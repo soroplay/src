@@ -25,14 +25,21 @@
         <img src="../img/hovlogo.svg" id="hovlogo2">
     </div>
 
+        <div id="modal-teacher">
+        <div class="close-back"><div class="close">閉じる</div></div>
+            <div id="modal-teacher-list">
+                <?php foreach($guestTeacher as $teacher): ?>
+                <div id="naiyou"><?=$teacher->title?></div>
+                <?php endforeach; ?>
+            </div>
+        </div>
 
-    <footer>
-        <?php foreach($guestTeacher as $teacher): ?>
-            <p><?=$teacher->title?></p>
-        <?php endforeach; ?>
-
-        <?php foreach ($guestStudent as $student): ?>
-            <p><?=$student->seminarTitle ?></p>
-        <?php endforeach; ?>
-    </footer>
+        <div id="modal-student">
+            <div class="close-back"><div class="close">閉じる</div></div>
+                <div id="modal-student-list">
+                    <?php foreach ($guestStudent as $student): ?>
+                    <div id="naiyou"><?=$student->seminarTitle ?></div>
+                    <?php endforeach; ?>
+            </div>
+        </div>
 </body>
