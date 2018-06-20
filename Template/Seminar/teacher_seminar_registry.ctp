@@ -32,12 +32,18 @@
 </div>
 <?=$this->Form->end()?>
 
+
+<?=$this->Form->create(null, ['url'=>['action'=>'teacherSeminarCancel']]) ?>
+<?=$this->Form->hidden('seminarId', ['value'=>$obj['id']]) ?>
+
 <input type="button" value="取消" id="delete-btn">
 <div id="delete-modal">
 <p id="kettei">取消しますか？</p>
 <p id="close" class="colsebtn">✖︎</p>
+<?=$this->Form->button('はい') ?>
 <div id="torikesi"><?=$this->Form->postButton('取消',['action' => 'teacherSeminarCancel',$obj['id']]) ?></div>
 <input type="button" value="いいえ" id="cansel-btn1" class="cansel-btn">
 </div>
+<?=$this->Form->end()?>
 
 <?php endforeach; ?>

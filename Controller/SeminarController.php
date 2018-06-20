@@ -435,16 +435,20 @@ class SeminarController extends AppController{
 		$this->set('seminarList', $seminarList);
 	}
 
-	public function teacherSeminarCancel($id){
+	public function teacherSeminarCancel(){
 		$seminar = $this->Seminars->find('all', [
-			'conditions'=>['seminarId'=>$id]
+			'conditions'=>['seminarId'=>$this->request->data['seminarId']]
 		]);
 
 		foreach($seminar as $obj){
 			//$this->sendNotification($student, $obj->seminarTitle);
-			$this->sendNotification($id, $obj->seminarTitle);
+			$this->sendNotification($this->request->data['seminarId'], $obj->seminarTitle);
 		}
-		$this->Matchings->deleteAll(['seminarId'=>$id]);
+		$this->Matchings->deleteAll(['seminarId'=>$this->request->data['seminarId']]);
+		//$seminarTable = TableRegistry::get('Seminars');
+		$seminar = $this->Seminars->get([$this->request->data['seminarId']]);
+		$seminar->seminarFlag = 0;
+		$this->Seminars->save($seminar);
 
 		$this->redirect(['action'=>'student_top']);
 
