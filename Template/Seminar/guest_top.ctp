@@ -25,6 +25,7 @@
         <img src="../img/hovlogo.svg" id="hovlogo2">
     </div>
 
+
     <footer>
         <?php foreach($guestTeacher as $teacher): ?>
             <p><?=$teacher->title?></p>
