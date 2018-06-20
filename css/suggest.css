@@ -58,13 +58,7 @@ label{
 
 }
 
-a{
-    display: inline-block;
-    color: aliceblue;
-    position: fixed;
-    left: 430px;
-    top: 600px;
-}
+
 
 
 .btn {
@@ -219,20 +213,41 @@ body{
     width: 400px;
 }
 
-#login{
-    transition: 0.5s;
-    background-color: black;
-    color: white;
-    font-size: 15px;
-    padding: 20px 50px;
-    margin-top: 70px;
-    margin-left: 240px;
-}
+
 
 #login:hover{
     transition: 0.5s;
     padding: 25px 60px;
  }
+ #logout{
+    position: absolute;
+    background-color: white;
+    top:5px;
+    right: 20px;
+    padding: 5px 20px;
+    color: white;
+    text-decoration: none;
+    border: solid 2px black;
+}
+#mypage{
+    position: absolute;
+    background-color: white;
+    top:5px;
+    right: 150px;
+    padding: 5px 20px;
+    color: white;
+    text-decoration: none;
+    border: solid 2px black;
+}
+
+#home{
+    
+        display: inline-block;
+        color: #0B0C0D;
+        position: fixed;
+        left: 430px;
+        top: 730px;
+}
  
  
 
