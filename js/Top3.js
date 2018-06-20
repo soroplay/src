@@ -51,4 +51,20 @@ $(function () {
         $('#link-wrapper').fadeOut();
         $('#link-modal').fadeOut();
     });
+
+    //講師モーダル
+    $('#teach-sent').click(function(){
+        $('#modal-teacher').fadeIn();
+    });
+    $('.close-back').click(function(){
+        $('#modal-teacher').fadeOut();
+    });
+
+    //生徒のモーダル
+    $('#student-sent').click(function(){
+        $('#modal-student').fadeIn();
+    });
+    $('.close-back').click(function(){
+        $('#modal-student').fadeOut();
+    });
 });
