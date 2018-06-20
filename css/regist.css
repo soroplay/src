@@ -1,10 +1,10 @@
 body{
-    background-image: url(/img/RegistBack.png);
+    background-image: url("../img/RegistBack.png");
      background-repeat: cover;
     background-position: center center;
 }
 
-.logo {
+#logo {
     margin-left:530px;
     margin-top: 100px;
 }
@@ -13,10 +13,10 @@ body{
     border-radius :8px;/*角の丸み*/
     box-shadow :0px 0px 5px silver;/*5px=影の広がり具合*/
     border: solid 2px gray;/*線の種類 太さ 色*/
-    width:500px;
+    width:590px;
     height: 340px;
     margin: auto;
-    margin-left: 480px;
+    margin-left: 430px;
 }
 
 .form-space {
@@ -33,17 +33,18 @@ li{
     margin: 15px;
 }
 
-input{
+.input{
     border-radius :8px;/*角の丸み*/
     box-shadow :0px 0px 5px silver;/*5px=影の広がり具合*/
     float: right;
     font-size: 20px;
+    margin-left: 10px;
 }
 
 label{
     margin-left: 0px;
     width: 120px;
-    font-weight: bolder;
+    font-weight: bolder; 
 }
 
 #button{
@@ -57,14 +58,15 @@ a{
     display: inline-block;
     color: aliceblue;
     position: fixed;
-    left: 490px;
+    left: 430px;
     top: 600px;
 }
 
 
 .btn {
-    margin-right: 180px;
+    margin-right: 90px;
     margin-top: 10px;
+    margin-left: 230px;
     width: 100px;
     font-size: 15px;
     height: 30px;
@@ -82,5 +84,5 @@ background-color:  rgba(155, 147, 147, 0.7);
     font-weight: bold;
 }
 a:hover{
-    color: rgba(100, 96, 96, 0.7);
+    color: rgba(86, 173, 238, 0.70);
 }
