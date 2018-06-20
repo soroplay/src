@@ -19,7 +19,12 @@ echo $this->fetch('css');
 
 <body>
 	 <div id="container">
+		<div id="header">
+			<div id="logo"><?=$this->Html->image("/img/mypagelogo.png",['alt'=>'ロゴ'])?>
+			
+			</div>
 		</div>
+	</div>
 		<div id="content">	
 			<?=$this->fetch('content') ?>
 		</div>
