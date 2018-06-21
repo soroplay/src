@@ -455,6 +455,7 @@ class SeminarController extends AppController{
 	}
 
 	public function checkTeacherProfile(){
+		$this->viewBuilder()->layout('profile');
 		$teacher = $this->Teachers->find('all', [
 			'conditions'=>['teacherId'=>'teacher1']
 		]);
