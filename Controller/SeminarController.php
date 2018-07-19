@@ -59,7 +59,7 @@ class SeminarController extends AppController{
 		]);
 		$this->Seminars->updateAll(
 			['seminarFlag'=>4],
-			['seminarFlag'=>3, 'ideaId'=>$endSeminar]
+			['seminarFlag'=>3, 'ideaId IN '=>$endSeminar]
 		);
 	}
 
