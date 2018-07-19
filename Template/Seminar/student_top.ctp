@@ -20,13 +20,13 @@
 	</tr>
 <?php  foreach($data  as  $obj):  ?>
 	<?php if(($obj->capacity > $cnt[$obj->seminarId])&&(strtotime($obj->dueDate) > strtotime(date('Y/m/d')))): ?>
-	<tr id="list-tr">
+	<tr class="list-tr">
 		<td id="title"><?=$obj->seminarTitle ?></td>
 		<td id="detail">詳細を見る</td>
 		<td id="teach-name"><?=$this->Html->link($teacher[$obj->teacherId], ['action'=>'check_teacher_profile']); ?></td>
 		<td id="day"><?=(strtotime($obj->dueDate) - strtotime(date('Y/m/d'))) / (60 * 60 * 24) ?></td>
 		<td id="capa"><?=$obj->capacity - $cnt[$obj->seminarId] ?></td>
-
+	
 		<div id="modal-wrapper">
         </div>
         <div id="modal">
@@ -36,14 +36,12 @@
                 <li>概要</li>
                 <li>備考</li>
                 <li>参加費</li>
-				<li>開催場所</li>
             </ul>
             <ul id="list-right">
-                <li><?=$eventDate[$obj->ideaId]?></li>
-                <li><?=$obj->outline ?></li>
-                <li><?=$obj->remarks ?></li>
-                <li><?=$entryFee[$obj->ideaId]?></li>
-				<li><?=$obj->venue ?></li>
+                <li>内容</li>
+                <li>内容</li>
+                <li>内容</li>
+                <li>内容</li>
             </ul>
             </div>
         </div>
@@ -79,3 +77,12 @@
 </table>
 
 
+<div class="paginator">
+	<ul class="pagination">
+		<div id="first"><?= $this->Paginator->first('<<') ?></div>
+		<div id="first-s"><?= $this->Paginator->prev('<') ?></div>
+		<?= $this->Paginator->numbers() ?>
+		<div id="last"><?= $this->Paginator->next('>') ?></div>
+		<div id="last-s"><?= $this->Paginator->last('>>') ?></div>
+	</ul>
+</div>

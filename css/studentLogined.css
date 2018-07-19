@@ -1,9 +1,11 @@
 body{
     margin: 0px;
+    background-color: rgb(199, 229, 248);
 }
 
 #logo{
     padding-top:13px; 
+    background-color: white;
     border-bottom:solid 2px gray;
 }
 
@@ -31,7 +33,7 @@ body{
     padding: 5px 20px;
     color: white;
     text-decoration: none;
-    border: solid 2px black;
+    border: solid 2px rgb(202, 114, 32);
 }
 /*発案ボタン*/
 #sug-link{
@@ -41,14 +43,16 @@ body{
     margin-top: 60px;
     margin-left: 530px;
     padding:15px 140px;
-    border: solid 2px black;
+    border: solid 2px rgb(202, 114, 32);
     margin-bottom: 50px;
+    box-shadow: 2px 2px 2px 2px gray;
+    font-weight:bold 
 }
 
 #sug-link:hover{
     transition: 0.5s;
     padding:17px 142px;
-    background-color: rgb(187, 184, 184);
+    background-color: rgb(168, 95, 26);
 }
 
 /*ジャンルリスト*/
@@ -75,6 +79,10 @@ body{
     left: 850px;
     width: 380px;
     margin-left: 40px;
+    background-color:white;
+    padding: 20px;
+    padding-right:80px; 
+    box-shadow: 2px 2px 2px 2px gray;
 }
 
 #search-wid{
@@ -85,13 +93,14 @@ body{
 #search-btn {
     position: absolute;
     display: inline-block;
-    background-color: black;
+    background-color: rgb(202, 114, 32);
+    border-radius: 5px 5px 5px 5px;
     color: white;
     width: 110px;
     height: 40px;
     font-size: 20px;
     margin-left: 30px;
-    top:-2px;
+    top:13px;
 }
 
 #search-btn:hover{
@@ -115,15 +124,18 @@ ul{
 /*リスト項目の設定*/
 #koumoku{
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 100px;
     margin-left: 40px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border-bottom: solid 2px gray;
+    box-shadow: 2px 2px 2px 2px gray;
+    background-color: #ffffff;
 }
 
 th{
     padding: 100px;
-    padding-bottom: 0px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 #seminar-title{
@@ -132,6 +144,13 @@ th{
 
 
 /*listの設定*/
+.list-tr { 
+    box-shadow: 2px 2px 2px 2px gray;
+    margin-bottom:130px;
+    width: 100px;
+    background-color: white;
+    margin-bottom: 30px;
+}
 td{ 
     display:inline-block;
     margin-top: 20px;
@@ -140,9 +159,9 @@ td{
 
 #title{
     margin-left: 40px;
+    padding-left: 0px;
     padding-bottom:40px; 
-    width: 1200px;
-    border-bottom: solid 2px gray;
+    width: 1240px;
 }
 
 #detail{
@@ -174,7 +193,8 @@ td{
 
 /*取消または参加ボタンの設定*/
 .sub-btn{
-    background-color: black;
+    background-color: rgb(202, 114, 32);
+    border-radius:5px 5px 5px 5px; 
     padding:10px 25px;
     color: white;
     font-size: 15px;
