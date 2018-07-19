@@ -1,7 +1,36 @@
 body{
-    background-image: url(/img/RegistBack.png);
+    background-color: rgb(199, 229, 248);
+    margin: 0px;
+}
+#header-logo{
+    width: 100%;
+}
+#logo{
+    background-color: white;
+    padding-bottom: 40px;
 }
 
+#logout{
+    position: absolute;
+    background-color: white;
+    top:5px;
+    right: 20px;
+    padding: 5px 20px;
+    color: white;
+    text-decoration: none;
+    border: solid 2px black;
+}
+
+#mypage{
+    position: absolute;
+    background-color: white;
+    top:5px;
+    right: 150px;
+    padding: 5px 20px;
+    color: white;
+    text-decoration: none;
+    border: solid 2px rgb(202, 114, 32);
+}
 
 .teachre-prof {
     position: absolute;
@@ -11,11 +40,12 @@ body{
 
 #main-contens {
     position: relative;
-    background-color:rgba(128, 128, 128, 0.7);
+    background-color:white;
     width: 650px;
     height: 650px;
     margin: auto;
     margin-top: 90px; 
+    box-shadow: 2px 2px 2px 2px gray;
 }
 
 #teach-name {
@@ -39,6 +69,7 @@ body{
 
 #evalu-star {
     margin-left: 260px;
+    color: rgb(245, 70, 17);
 }
 
 #carrear {

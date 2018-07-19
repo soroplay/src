@@ -1,3 +1,11 @@
+<div id ="header-logo">
+<div id ="logo">
+　　<?php $this->Html->image('img/mypagelogo.png', array('alt' => 'CakePHP'));?>
+    <div id="logout"><?=$this->Html->link('ログアウト',array('style'=>'text-decoration:none'),['action'=>'logout']);?></div>
+    <div id="mypage"><?=$this->Html->link('マイページ',['action'=>'studentMyPage']);?></div>
+</div>
+</div>
+
 <div id="main-contens">
     <div class="teachre-prof"><?php $img = base64_encode(stream_get_contents($photograph)); ?>
 <img src="data:image/png;base64,<?=$img ?>" width="130px"><br></div>
