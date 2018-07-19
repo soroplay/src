@@ -336,6 +336,7 @@ class SeminarController extends AppController{
 	}
 
 	public function studentRegistry(){
+		$this->viewBuilder()->layout('studentregistry');
 		$this->Student = TableRegistry::get('students'); 
 		$this->set('entity', $this->Students->newEntity());
 		if($this->request->is('post')){
